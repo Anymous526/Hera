@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-autowire="byName" default-lazy-init="false">
+	
+	
+	
+	<!--<bean id="dispatchAction" class="com.justinmobile.endpoint.mina.action.DispatchAction" init-method="initMap"/>-->
+	<bean id="mtRequestDtoFactory" class="com.justinmobile.endpoint.mina.request.MtRequestDtoFactory"/>
+	<bean id="posMessageHandler" class="com.justinmobile.endpoint.mina.handler.PosMessageHandlerImpl"/>
+
+	<bean id="hibernateLazyResolver" class="com.vlives.core.support.hibernate.HibernateLazyResolver"/>
+	 
+	 <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.net.SocketAddress">
+					<bean
+						class="org.apache.mina.integration.spring.InetSocketAddressEditor" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	  
+	  <!--handler  -->
+	<bean id="mtRequestHandler" class="com.justinmobile.endpoint.mina.handler.MtRequestHandler" >
+	  <property name="hibernateLazyResolver"  ref="hibernateLazyResolver"></property>
+	</bean>
+	
+	
+	<!-- filter 
+	<bean id="textLineCodecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
+		<constructor-arg>
+			<bean
+				class="com.justinmobile.endpoint.mina.filter.MinaTextLineCodecFactory">
+				<constructor-arg>
+					<value>GBK</value>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+	</bean>
+	-->
+	<!--二进制-->
+	<bean id="hs8583BinaryDecoder" class="com.justinmobile.endpoint.mina.filter.encode.binary.Hs8583BinaryDecoder" />
+	<bean id="hs8583BinaryEncoder" class="com.justinmobile.endpoint.mina.filter.encode.binary.Hs8583BinaryEncoder" />
+	<bean id="hs8583BinaryCodecFactory" class="com.justinmobile.endpoint.mina.filter.encode.binary.Hs8583BinaryCodeFactory"/>
+	<bean id="hs8583BinaryCodecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
+		<constructor-arg>
+			<ref bean="hs8583BinaryCodecFactory" />
+		</constructor-arg>
+	</bean>
+	
+
+	<bean id="loggingFilter"
+		class="org.apache.mina.filter.logging.LoggingFilter" />
+	<bean id="pospLogFilter"
+		class="com.justinmobile.endpoint.mina.logs.PospLogFilter" />
+	<bean id="mtProtocolDecodeFilter"
+		class="com.justinmobile.endpoint.mina.filter.MtProtocolDecodeFilter" />
+
+	 
+	
+	<!-- server -->
+	<bean id="ioAcceptor"
+		class="org.apache.mina.transport.socket.nio.NioSocketAcceptor"
+		init-method="bind" destroy-method="unbind">		 
+		<property name="defaultLocalAddress" value=":8010" />
+		<property name="handler" ref="mtRequestHandler" />
+		<property name="filterChainBuilder" ref="filterChainBuilder" />
+		<property name="reuseAddress" value="true" />
+	</bean>
+	 
+	<bean id="filterChainBuilder"
+		class="org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder">
+		<property name="filters">
+			 <map>
+			    <entry key="codecFilter" value-ref="hs8583BinaryCodecFilter" />
+			 	<entry key="loggingFilter" value-ref="loggingFilter"/>
+			 	<entry key="pospLogFilter" value-ref="pospLogFilter"/>
+			 	<entry key="mtProtocolDecodeFilter" value-ref="mtProtocolDecodeFilter"/>
+			 </map>
+		</property>
+	</bean>
+	<!-- mina服务端(支持SSL) -->
+	<bean id="ioAcceptorBySSL"
+		class="org.apache.mina.transport.socket.nio.NioSocketAcceptor"
+		init-method="bind" destroy-method="unbind">		 
+		<property name="defaultLocalAddress" value=":9000" />
+		<property name="handler" ref="mtRequestHandler" />
+		<property name="filterChainBuilder" ref="filterChainBuilderBySSL" />
+		<property name="reuseAddress" value="true" />
+	</bean>
+	<bean id="filterChainBuilderBySSL"
+		class="org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder">
+		<property name="filters">
+			 <map>
+			 	<entry key="sslFilter" value-ref="sslFilterServer" />			 	 
+			    <entry key="codecFilter" value-ref="hs8583BinaryCodecFilter" />
+			 	<entry key="loggingFilter" value-ref="loggingFilter"/>
+			 	<entry key="pospLogFilter" value-ref="pospLogFilter"/>
+			 	<entry key="mtProtocolDecodeFilter" value-ref="mtProtocolDecodeFilter"/>
+			 </map>
+		</property>
+	</bean>
+		
+
+	
+  <bean id="sslContextFactory" class="com.justinmobile.endpoint.mina.ssl.SSLContextFactory">
+	  <property name="clientKeystore" value="config/myclient.jks"/>
+	  <property name="clientTrustKeystore" value="config/clientTrust.jks"/>
+	  <property name="serverKeystroe" value="config/server.jks"/>
+	  <property name="passwd" value="123456"/>
+  </bean>
+  <bean id="sslContext" factory-bean="sslContextFactory" factory-method="getClientInstance"/>
+  <bean id="sslFilter" class="org.apache.mina.filter.ssl.SslFilter">
+    <constructor-arg ref="sslContext"/>
+    <property name="useClientMode" value="true"/>
+  </bean>
+   <!-- 服务端SSLFILTER -->
+  <bean id="sslFilterServer" class="org.apache.mina.filter.ssl.SslFilter">
+    <constructor-arg ref="sslContext"/>
+    <property name="useClientMode" value="false"/>
+  </bean>
+</beans>

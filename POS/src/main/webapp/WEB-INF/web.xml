@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	 
+
+	<!--Spring ApplicationContext配置文件的路径。可使用通配符，多个路径用逗号分隔。
+		此参数用于后面的“Spring-Context loader”-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:spring/applicationContext*.xml,
+			classpath*:base/spring/spring-*.xml
+		</param-value>
+	</context-param>
+	<!--Spring Context loader-->
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+	
+	<!--Open Session in View Filter-->
+	<filter>
+		<filter-name>openSessionInView</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInView</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	 <servlet>
+		<servlet-name>SmsSendServle</servlet-name>
+		<servlet-class>com.justinmobile.boss.servlet.SmsSendServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SmsSendServle</servlet-name>
+		<url-pattern>/pos/sms/</url-pattern>
+	</servlet-mapping>
+
+	<!--session 超时定义 分钟-->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+ 
+</web-app>
