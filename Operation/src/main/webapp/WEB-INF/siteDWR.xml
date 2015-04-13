@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr//dwr20.dtd">
+<dwr>
+	<allow>
+		<create creator="new" javascript="JDate">
+			<param name="class" value="java.util.Date" />
+		</create>
+
+		<convert converter="collection" match="java.util.Collection" />
+
+		<convert converter="map" match="java.util.Map" />
+
+		<convert converter="bean"
+			match="com.justinmobile.security.web.util.ModelAndResult">
+			<param name="include" value="model, viewName, success, message" />
+		</convert>
+
+		<convert converter="bean"
+			match="com.justinmobile.security.web.util.TreeItem">
+		</convert>
+
+		<create creator="spring" javascript="TreeBuilder">
+			<param name="beanName" value="treeBuilder" />
+			<include method="getUsersTree" />
+			<include method="getAllTrees" />
+			<include method="getLoginName" />
+			<include method="getLoginTime" />
+			<include method="isExpired" />
+		</create>
+		
+		<create creator="spring" javascript="resServ">
+			<param name="beanName" value="sysResourceController" />
+			<include method="getResTypeItemList" />
+			<include method="editRes" />
+		</create>
+
+		<create creator="spring" javascript="authServ">
+			<param name="beanName" value="sysAuthorityController" />
+			<include method="editAuth" />
+			<include method="getResources" />
+			<include method="getMenus" />
+			<include method="setResouces" />
+		</create>
+
+		<create creator="spring" javascript="menuServ">
+			<param name="beanName" value="sysMenuController" />
+			<include method="editMenu" />
+			<include method="getMenuItemList" />
+		</create>
+
+		<create creator="spring" javascript="roleServ">
+			<param name="beanName" value="sysRoleController" />
+			<include method="editRole" />
+			<include method="getAuthorities" />
+		</create>
+
+		<create creator="spring" javascript="userServ">
+			<param name="beanName" value="sysUserController" />
+			<include method="editUser" />
+			<include method="getRoles" />
+			<include method="getStatusList" />
+		</create>
+	
+	
+	<create creator="spring" javascript="IndustryManager">
+			<param name="beanName" value="industryController" />
+			<include method="ajaxUpdateTitle" />
+			<include method="ajaxRemoveNode" />
+			<include method="ajaxMoveNode" />
+		</create>
+	
+	</allow>
+	<signatures>
+	 <![CDATA[ 
+			 import java.util.List;
+ 	  ]]>
+	</signatures>
+
+
+</dwr>

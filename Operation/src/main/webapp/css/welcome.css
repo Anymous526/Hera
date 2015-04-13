@@ -1,0 +1,43 @@
+﻿/*======COMMON======*/
+body {margin:0px; font:9pt Tahoma,Verdana,Arial,Sans-Serif,宋体; color:#333333; background-color:#ffffff}
+div {margin:0px; font:9pt Tahoma,Verdana,Arial,Sans-Serif,宋体; color:#333333; line-height:150%}
+dl {margin:0px}
+table {border:0px; padding:0px; border-collapse:collapse}
+td {font:9pt Tahoma,Verdana,Arial,Sans-Serif,宋体; color:#333333; line-height:150%}
+th {font:9pt Tahoma,Verdana,Arial,Sans-Serif,宋体; color:#333333; line-height:150%}
+ul {padding:0px; margin:0px; list-style-type:none}
+li {text-align:left; list-style-type:none; list-style-position:outside}
+form {margin:0px}
+input {font:9pt Tahoma,Verdana,Arial,Sans-Serif,宋体}
+textarea {font:9pt Tahoma,Verdana,Arial,Sans-Serif,宋体; width:100%}
+/*====================*/
+
+
+/*======MAIN======*/
+.mainframe {padding:7px 10px}
+.maintab {background:#d8e3f3 url(/admin/images/black/main_tabline.gif) bottom repeat-x; height:25px; padding:5px 10px 0px 10px}
+.ADmenuOn {padding:2px 14px 0px 14px; height:22px; float:left; font-size:14px; font-weight:bold; color:#15428b; background:#eef5fd; border:1px solid #8db2e3; border-bottom:1px solid #eef5fd}
+.maintable {background:#eef5fd; padding:5px}
+.maintable_ctrl {padding:5px 0px 0px 10px}
+.marntable_table {background:white; margin-top:10px; padding:5px; border-top:2px solid #a0a0a0}
+.viewtable {padding:5px; background:white}
+.viewtable table {width:100%; border-top:1px solid #8db2e3; border-left:1px solid #8db2e3}
+.viewtable table thead th {color:#15428b; height:22px; border-bottom:1px solid #8db2e3; border-right:1px solid #8db2e3; background:#d8e3f3; text-align:left; text-indent:15px}
+.viewtable table tbody th {height:23px; font-weight:bold; border-bottom:1px solid #8db2e3; border-right:1px solid #8db2e3; text-align:right; padding-right:10p}
+.viewtable table tbody td {height:23px; border-bottom:1px solid #8db2e3; border-right:1px solid #8db2e3; text-align:left; text-indent:10px}
+.welcome {background:#d1def1; color:#15428b; text-indent:15px; padding:4px 0px; font-weight:bold; font-size:14px}
+.usercard {margin:15px}
+.safe {padding:10px 20px}
+.safe table {width:100%}
+.safe table th {border-bottom:2px solid gray; text-align:left; text-indent:5px; color:#15428b}
+.safe table td {padding-left:10px}
+.safe table td span {display:block; padding-top:4px; color:gray; font-size:12px; font-weight:normal}
+/*====================*/
+
+
+
+/*======LINK======*/
+/*common*/
+a {font:normal 9pt Tahoma,Verdana,Arial,Sans-Serif,宋体; color:#303a43; text-decoration:underline}
+a:hover {font:normal 9pt Tahoma,Verdana,Arial,Sans-Serif,宋体; color:#303a43; text-decoration:none}
+/*====================*/

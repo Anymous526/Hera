@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean name="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="notifyMerchant" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="notifyMerchant" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="notifyMerchantMethod" />			
+		<property name="cronExpression" value="0 0/10 * * * ?"/>	
+	</bean>
+	<bean id="notifyMerchantMethod" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="merchantInfoManager" />			
+		<property name="targetMethod" value="autoNotify" />			
+	</bean>
+
+</beans>

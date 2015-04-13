@@ -1,0 +1,264 @@
+/* 登录和主界面 */
+.user {
+	background: url(../images/ext_images/user_blue.gif) no-repeat 1px 2px;
+}
+
+.key {
+	background: url(../images/ext_images/key.gif) no-repeat 1px 2px;
+}
+
+.logout {
+	background: url(../images/ext_images/application_go.png) left top
+		no-repeat !important;
+}
+
+.topbar {
+	color: red;
+	background-image: url(../images/tableTopbg.gif);
+	background-repeat: repeat;
+}
+
+.topbar button {
+	color: white;
+	font-weight: bold
+}
+
+.topbar span {
+	color: white;
+	font-weight: bold
+}
+
+/* 工具栏按钮 */
+.add {
+	background: url(../images/ext_images/add.gif) left top no-repeat
+		!important;
+}
+
+.edit {
+	background: url(../images/ext_images/edit.gif) left top no-repeat
+		!important;
+}
+
+.func {
+	background: url(../images/ext_images/cog_edit.png) left top no-repeat
+		!important;
+}
+
+
+.import {
+	background: url(../images/ext_images/dbsave.gif) left top no-repeat
+		!important;
+}
+
+.lock {
+	background: url(../images/ext_images//hmenu-lock.gif) left top no-repeat
+		!important;
+}
+
+.unlock {
+	background: url(../images/ext_images//hmenu-unlock.gif) left top
+		no-repeat !important;
+}
+
+.alter {
+	background: url(../images/ext_images/edit.gif) left top no-repeat
+		!important;
+}
+
+.detail {
+	background: url(../images/ext_images/details.gif) left top no-repeat
+		!important;
+}
+
+.columns {
+	background: url(../images/ext_images/columns.gif) left top no-repeat
+		!important;
+}
+
+.register {
+	background: url(../images/ext_images/application_form_add.png) left top
+		no-repeat !important;
+}
+
+.remove {
+	background: url(../images/ext_images/delete.gif) left top no-repeat
+		!important;
+}
+
+.save {
+	background: url(../images/ext_images/save.gif) left top no-repeat
+		!important;
+}
+
+.search {
+	background: url(../images/ext_images/search.gif) left top no-repeat
+		!important;
+}
+
+.refresh {
+	background: url(../images/ext_images/refresh.gif) left top no-repeat
+		!important;
+}
+
+.excel {
+	background: url(../images/ext_images/excel.png) left top no-repeat
+		!important;
+}
+
+.yes {
+	background: url(../images/ext_images/drop-yes.gif) left top no-repeat
+		!important;
+}
+
+.no {
+	background: url(../images/ext_images/drop-no.gif) left top no-repeat
+		!important;
+}
+.undo {
+	background: url(../images/ext_images/undo.gif) left top no-repeat
+		!important;
+}
+.prev {
+	background: url(../images/ext_images/page-prev.gif) left top no-repeat
+		!important;
+}
+.next {
+	background: url(../images/ext_images/page-next.gif) left top no-repeat
+		!important;
+}
+.useredit {
+	background: url(../images/ext_images/user_edit.png) left top no-repeat
+		!important;
+}
+
+.userdelete {
+	background: url(../images/ext_images/user_delete.png) left top no-repeat
+		!important;
+}
+
+.close {
+	background: url(../images/ext_images/close.gif) left top no-repeat
+		!important;
+}
+
+.user,.key,.key {
+	background-color: #FFFFFF;
+	padding-left: 20px;
+	font-weight: bold;
+	color: #000033;
+}
+.down {
+	background: url(../images/ext_images/col-move-top.gif) left  no-repeat
+		!important;
+	}
+.up {
+	background: url(../images/ext_images/col-move-bottom.gif) left  no-repeat
+		!important;
+	}
+/* 文本信息 */
+.item-field-readonly {
+	background-color: lightblue;
+	background-image: url(../images/ext_images/background-lightblue.JPG);
+	background-position: center;
+	background-repeat: repeat;
+	filter: none;
+	color: black !important;
+	-moz-opacity: 100;
+	opacity: 1;
+	border-width: 2px;
+}
+
+.textarea-readonly {
+	background-image: url(../images/ext_images/background-lightblue.JPG);
+	background-position: center;
+	background-repeat: repeat;
+}
+
+.wait{
+	background: url(../images/ext_images/wait.gif) left top no-repeat 1px 2px;
+}
+
+.x-form-element  .textarea-readonly {
+	background-image: url(../images/ext_images/background-lightblue.JPG);
+	background-position: center;
+	background-repeat: repeat;
+}
+
+.x-form-miscfield {
+	height: 22px;
+	line-height: 18px;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.ext-ie .x-form-miscfield {
+	height: 22px; /* ie quirks */
+	line-height: 18px;
+}
+
+.ext-strict .x-form-miscfield {
+	height: 18px;
+}
+
+.ext-safari .x-form-miscfield {
+	height: 20px; /* safari always same size */
+}
+
+.ext-gecko .x-form-miscfield {
+	padding-top: 2px; /* FF won't center the text vertically */
+	padding-bottom: 0;
+}
+
+#Messages {
+	color: red;
+}
+
+#msg-div {
+	position: absolute;
+	top: 10px;
+	width: 250px;
+	z-index: 20000;
+}
+
+/*文件上传组件样式*/
+.ux-cabinet {
+	position: relative;
+}
+
+.ux-input-file-wrapper {
+	position: absolute;
+	display: block;
+	height: 22px;
+	width: 18px;
+	overflow: hidden;
+}
+
+.ux-file {
+	position: absolute;
+	height: 22px;
+	width: auto;
+	right: 0px;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter: progid :   DXImageTransform .   Microsoft .  
+		Alpha(opacity =   0);
+}
+
+.ux-lovcombo-icon {
+	width:16px;
+	height:16px;
+	float:left;
+	background-position: -1px -1px ! important;
+	background-repeat:no-repeat ! important;
+}
+.ux-lovcombo-icon-checked {
+	background-image:url(../extjs/ext-3.2.1/resources/images/default/menu/checked.gif);
+}
+.ux-lovcombo-icon-unchecked {
+	background-image:url(../extjs/ext-3.2.1/resources/images/default/menu/unchecked.gif);
+}
+
+.x-grid3-cell-text-visible .x-grid3-cell-inner{overflow:visible;padding:3px 3px 3px 5px;white-space:normal;}
+
+/* PRE自动换行 */
+pre{white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}

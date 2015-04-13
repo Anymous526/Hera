@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-autowire="byName" default-lazy-init="true">
+
+	<bean id="loginEventLoger" class="com.justinmobile.log.interceptor.LoginEventListener" />
+	
+	<bean id="smadminMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+	<property name="interceptors">
+			<list>
+				<bean class="com.justinmobile.log.interceptor.LogInterceptor">
+					<property name="ignoreHandlers">
+						<list>
+							<value>query*</value>
+							<value>list*</value>
+							<value>get*</value>
+							<value>show*</value>
+							<value>view*</value>
+							<value>index</value>
+							<value>edit*</value>
+							<value>generate</value>
+							<value>load*</value>
+							<value>check*</value>
+							<value>report</value>
+						</list>
+					</property>
+					<property name="ignoreParameters">
+						<list>
+							<value>method</value>
+							<value>submit</value>
+							<value>password*</value>
+							<value>_dc</value>
+							<value>sort</value>
+							<value>dir</value>
+							<value>limit</value>
+							<value>start</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 适配注解模式的controller -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="cacheSeconds" value="0" />
+		<property name="webBindingInitializer">
+			<bean class="com.justinmobile.core.web.WebBindingInitializerImpl" />
+		</property>
+	</bean>
+    <!-- 适配传统模式的controller -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd" default-autowire="byName" default-lazy-init="true">
+
+	<!-- Mapping exception to the handler view -->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="/errors/error.jsp" />
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.justinmobile.core.exception.BusinessException">/businessError.jsp</prop>
+				<prop key="org.springframework.security.AccessDeniedException">/errors/403.jsp</prop>
+				<prop key="java.lang.Exception">/errors/error.jsp</prop>
+			</props>
+		</property>
+	</bean>
+	
+		<!-- 上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760" />
+		<property name="maxInMemorySize" value="4096" />
+	</bean>
+
+	<!-- Multi-Action 用来标识method的变量名定义 -->
+	<bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="method" />
+		<property name="defaultMethodName" value="index" />
+	</bean>
+
+	<!-- Default ViewResolver
+		在开发时保留原路径，在WAR中才加入prefix="/WEB-INF/pages/" -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	</bean>
+</beans>

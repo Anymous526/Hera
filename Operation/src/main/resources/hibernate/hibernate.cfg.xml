@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<mapping class="com.justinmobile.security.domain.SysUser" />
+	<mapping class="com.justinmobile.security.domain.SysRole" />
+	<mapping class="com.justinmobile.security.domain.SysAuthority" />
+	<mapping class="com.justinmobile.security.domain.SysResource" />
+	<mapping class="com.justinmobile.security.domain.SysMenu" />
+
+	<mapping class="com.justinmobile.bmp.cloudboss.merchant.domain.NotifyInfo" />	
+	<mapping class="com.justinmobile.bmp.cloudboss.merchant.domain.MerchantContractInfo" />	
+	<mapping class="com.justinmobile.bmp.common.log.domain.OperationLog" />
+	<mapping class="com.justinmobile.bmp.cloudboss.sms.domain.SalePloyAgentInfo" />
+	<mapping class="com.justinmobile.bmp.pos.domain.PosApp" />
+	<mapping class="com.justinmobile.bmp.pos.domain.PosAppVersion" />
+	<mapping class="com.justinmobile.bmp.pos.domain.MerchantAppConfig" />
+	<mapping class="com.justinmobile.bmp.pos.domain.PosAppVersionRecord" />
+	<mapping class="com.justinmobile.bmp.pos.domain.City" />
+</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,338 @@
+.MainWindow{
+	position:absolute; 
+	z-index:-3; 
+	left:0; 
+	top:0; 
+	width:100%; 
+	height:100%;
+}
+.MainWindowCover{
+	position:absolute; 
+	z-index:-2; 
+	left:0; 
+	top:0; 
+	width:100%; 
+	height:100%; 
+	visibility: hidden; 
+	background-color: #DDDDDD;
+	border: 1px none #000000; 
+	filter: 
+	progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+}
+.PopupWindowNormal {
+	position:absolute;
+	z-index:-1;
+	left: 180;
+	top: 40;
+	background-color: #DDDDDD;
+	border-style:none;
+	visibility: hidden;
+	border-color:#3366FF;
+	border-width:0;
+	font-family: "song", "宋体";
+	font-size: 12px;
+	line-height: 15px;
+	color: #0047a8; 
+	text-decoration: underline;
+	overflow-x:auto;overflow-y:auto;
+	filter:
+	progid:DXImageTransform.Microsoft.gradient(startColorstr=#55EEEEEE,endColorstr=#FFFFFFFF)
+	progid:DXImageTransform.Microsoft.Glow(color=#55000000,strength=1)
+	progid:DXImageTransform.Microsoft.Alpha(Opacity=95)
+	progid:DXImageTransform.Microsoft.DropShadow(color=#55000000);
+}
+
+.PopupWindowNormal1 {
+	position:absolute;
+	z-index:-1;
+	left: 100;
+	top: 100;
+	background-color: #DDDDDD;
+	border-style:none;
+	visibility: hidden;
+	border-color:#3366FF;
+	border-width:0;
+	font-family: "song", "宋体";
+	font-size: 12px;
+	line-height: 15px;
+	color: #0047a8; 
+	text-decoration: underline;
+	overflow-x:auto;overflow-y:auto;
+	filter:
+	progid:DXImageTransform.Microsoft.gradient(startColorstr=#55EEEEEE,endColorstr=#FFFFFFFF)
+	progid:DXImageTransform.Microsoft.Glow(color=#55000000,strength=1)
+	progid:DXImageTransform.Microsoft.Alpha(Opacity=95)
+	progid:DXImageTransform.Microsoft.DropShadow(color=#55000000);
+}
+
+.PopupWindowNormal2 {
+	position:absolute;
+	z-index:-1;
+	left: 100;
+	top: 40;
+	background-color: #DDDDDD;
+	border-style:none;
+	visibility: hidden;
+	border-color:#3366FF;
+	border-width:0;
+	font-family: "song", "宋体";
+	font-size: 12px;
+	line-height: 15px;
+	color: #0047a8; 
+	text-decoration: underline;
+	overflow-x:auto;overflow-y:auto;
+	filter:
+	progid:DXImageTransform.Microsoft.gradient(startColorstr=#55EEEEEE,endColorstr=#FFFFFFFF)
+	progid:DXImageTransform.Microsoft.Glow(color=#55000000,strength=1)
+	progid:DXImageTransform.Microsoft.Alpha(Opacity=95)
+	progid:DXImageTransform.Microsoft.DropShadow(color=#55000000);
+}
+
+.PopupWindowNormal3 {
+	position:absolute;
+	z-index:-1;
+	left: 80;
+	top: 10;
+	background-color: #DDDDDD;
+	border-style:none;
+	visibility: hidden;
+	border-color:#3366FF;
+	border-width:0;
+	font-family: "song", "宋体";
+	font-size: 12px;
+	line-height: 15px;
+	color: #0047a8; 
+	text-decoration: underline;
+	overflow-x:auto;overflow-y:auto;
+	filter:
+	progid:DXImageTransform.Microsoft.gradient(startColorstr=#55EEEEEE,endColorstr=#FFFFFFFF)
+	progid:DXImageTransform.Microsoft.Glow(color=#55000000,strength=1)
+	progid:DXImageTransform.Microsoft.Alpha(Opacity=95)
+	progid:DXImageTransform.Microsoft.DropShadow(color=#55000000);
+}
+
+.PopupWindowSinglePage {
+	position:absolute;
+	z-index:-1;
+	left: 200;
+	top: 80;
+	background-color: #DDDDDD;
+	border-style:none;
+	visibility: normal;
+	border-color:#3366FF;
+	border-width:0;
+	font-family: "song", "宋体";
+	font-size: 12px;
+	line-height: 15px;
+	color: #0047a8; 
+	text-decoration: underline;
+	overflow-x:none;overflow-y:none;
+	filter:
+	progid:DXImageTransform.Microsoft.gradient(startColorstr=#55EEEEEE,endColorstr=#FFFFFFFF)
+	progid:DXImageTransform.Microsoft.Glow(color=#55000000,strength=1)
+	progid:DXImageTransform.Microsoft.Alpha(Opacity=95)
+	progid:DXImageTransform.Microsoft.DropShadow(color=#55000000);
+}
+
+textarea{
+	font-family: "宋体";
+	text-decoration: none;	
+	border: 1px; 
+	font-size:9pt;
+	color:#333333;
+	border-style: solid;
+	border-color: #BBBBBB;
+	outline-style: solid;
+	outline-width: 1;
+	outline-color: #BBBBBB
+}
+input{
+	font-family: "宋体";
+	text-decoration: none;	
+	font-size:9pt;
+	height: 20px;;	
+}
+textfield{
+	font-family: "宋体";
+	text-decoration: none;	
+	border: 1px; 
+	color:#333333;
+	border-style: solid;
+	border-color: #BBBBBB;
+	outline-style: solid;
+	outline-width: 1;
+	outline-color: #BBBBBB
+}
+button{
+	font-family: "宋体";
+	text-decoration: none;	
+	height: 20px;
+	border: 1px; 
+	font-size:9pt;
+	color:#333333;
+	border-style: solid;
+	border-color: #BBBBBB;
+	outline-style: solid;
+	outline-width: 1;
+	outline-color: #BBBBBB
+}
+
+div{
+	overflow-x:hidden;overflow-y:auto;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	scrollbar-face-color: #F5F5F5; 
+	scrollbar-highlight-color: #D0E6FF; 
+	scrollbar-shadow-color: #D0E6FF; 
+	scrollbar-3dlight-color: #ECF5FF; 
+	scrollbar-arrow-color:  #D0E6FF; 
+	scrollbar-track-color: #ECF5FF; 
+	scrollbar-darkshadow-color: #ECF5FF;
+}
+iframe {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	scrollbar-face-color: #F5F5F5; 
+	scrollbar-highlight-color: #D0E6FF; 
+	scrollbar-shadow-color: #D0E6FF; 
+	scrollbar-3dlight-color: #ECF5FF; 
+	scrollbar-arrow-color:  #D0E6FF; 
+	scrollbar-track-color: #ECF5FF; 
+	scrollbar-darkshadow-color: #ECF5FF;
+}
+
+A {
+	outline: none;
+}
+.select			{
+	border: 1px solid #003399;
+	width: 100;
+	cursor: hand;
+	font-family: "宋体";
+}
+.selected		{
+	padding: 0;
+	font-family: "宋体";
+	background-image: url(../images/input_bg.gif);
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.selectTable	{
+	height: 100%;
+	width: 100%;
+}
+.option			{
+	font: "宋体";
+	FONT-SIZE: 12px;
+	COLOR: #003399;
+	padding-left: 3;
+	padding-right: 3;
+	width: 100%;
+	padding-top: 1;
+	padding-bottom: 1px;
+}
+.dropDown		{position: absolute; visibility: hidden; width: 100%;
+				border: 1 solid #003399; padding: 1;
+				background: window; color: windowtext;}
+.select .button	{
+	font-family: webdings;
+	font-size: 11px;
+	border: 2 outset buttonhighlight;
+	background-image: url(../images/button_bg.gif);
+	width: 16px;
+}
+.inp_out {
+	font-family: "宋体";
+	COLOR: #003399;
+	height: 22px;
+	border: 1px solid #003399;
+	background-image: url(../images/input_bg.gif);
+
+}
+.inp_over {
+	font-family: "宋体";
+	COLOR: #003399;
+	height: 22px;
+	border: 1px solid #99FFFF;
+	background-image: url(../images/input_bg_s.gif);
+}
+.btn_out {
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 12px;
+	CURSOR: hand;
+	COLOR: #003399;
+	border: 1px solid #003399;
+	height: 22px;
+	background-image: url(../images/button_bg.gif);
+	background-color: #FFFFFF;
+} 
+.btn_over {
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 12px;
+	CURSOR: hand;
+	COLOR: #0099CC;
+	height: 22px;
+	border: 1px solid #99FFFF;
+	background-image: url(../images/button_bg_s.gif);
+	background-color: #FFFFFF;
+} 
+.txt01,.txt01 a:visited,.txt01 a:link{
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+}
+.txt01 a:hover{
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 18px;
+	color: #FF9900;
+}
+.txt02,.txt02 a:visited,.txt02 a:link{
+	font-family: verdana;
+	font-size: 20px;
+	line-height: 18px;
+	text-decoration: none;
+	font-weight: bold;
+}
+.txt02 a:hover{
+	font-family: verdana;
+	font-size: 20px;
+	line-height: 18px;
+	color: #FF9900;
+	font-weight: bold;
+}
+.txt03,.txt03 a:visited,.txt03 a:link{
+	font-family: Webdings;
+	font-size: 12px;
+	line-height: 18px;
+	text-decoration: none;
+}
+.txt03 a:hover{
+	font-family: Webdings;
+	font-size: 12px;
+	line-height: 18px;
+	color: #FF9900;
+}
+.color01 {
+	color: #FFFFFF;
+}
+.color02 {
+	color: #003399;
+}
+.color03 {
+	color: #FF0000;
+}
+.color04 {
+	color: #999999;
+}

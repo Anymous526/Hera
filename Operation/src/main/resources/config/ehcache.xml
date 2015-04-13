@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+
+	
+	<diskStore path="java.io.tmpdir/hibernate/bmp" />
+	
+	<!-- Special objects setting. -->
+	<cache name="userCache"
+		maxElementsInMemory="500" overflowToDisk="true" eternal="true" />
+
+	<cache name="resourceCache"
+		maxElementsInMemory="500" overflowToDisk="true" eternal="true" />
+ 
+	<!--
+		DefaultCache setting. Modify ehcache-safe.xml for timeToIdleSeconds,timeToLiveSecond,diskExpiryThreadIntervalSeconds
+		Use ehcache-safe.xml default for maxElementsInMemory,maxElementsOnDisk,overflowToDisk,eternal Use ehcache default
+		for memoryStoreEvictionPolicy,diskPersistent,.
+	-->
+	<defaultCache maxElementsInMemory="10000" overflowToDisk="true" eternal="false"
+		memoryStoreEvictionPolicy="LRU" maxElementsOnDisk="10000000" diskExpiryThreadIntervalSeconds="600"
+		timeToIdleSeconds="60" timeToLiveSeconds="120" diskPersistent="false" />
+
+</ehcache>

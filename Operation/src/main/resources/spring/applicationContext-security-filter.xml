@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:security="http://www.springframework.org/schema/security"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd"
+	    default-autowire="byName">
+
+	<bean id="springSecurityFilterChain" class="org.springframework.security.util.FilterChainProxy">
+		<security:filter-chain-map path-type="ant">
+			<security:filter-chain pattern="/**" filters="httpSessionContextIntegrationFilter, logoutFilter, authenticationProcessingFilter, securityContextHolderAwareRequestFilter, rememberMeProcessingFilter, anonymousProcessingFilter, concurrentSessionFilter, exceptionTranslationFilter, filterSecurityInterceptor" />
+		</security:filter-chain-map>
+	</bean>
+
+	<bean id="httpSessionContextIntegrationFilter" class="org.springframework.security.context.HttpSessionContextIntegrationFilter" />
+
+	<bean id="logoutFilter" class="org.springframework.security.ui.logout.LogoutFilter">
+		<constructor-arg value="/view/security/jsp/login.jsp" />
+		<constructor-arg>
+			<list>
+				<ref bean="rememberMeServices" />
+				<bean
+					class="org.springframework.security.ui.logout.SecurityContextLogoutHandler" />
+				<ref bean="logoutLogger" />
+				<ref bean="customSessionLogoutHandler" /><!-- 清空了sesssion的所有信息，必须放最后  -->
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<!-- 退出系统日志处理 -->
+	<bean id="logoutLogger" class="com.justinmobile.log.interceptor.LogoutLogger" />
+
+	<!-- 因为使用了concurrentSessionController 在限制用户登陆,所以登出时移除相应的session信息 -->
+	<bean id="customSessionLogoutHandler" class="com.justinmobile.security.intercept.support.SessionLogoutHandler">
+		<property name="sessionRegistry">
+			<ref bean="sessionRegistry" />
+		</property>
+	</bean>
+
+	<bean id="authenticationProcessingFilter" class="org.springframework.security.ui.webapp.AuthenticationProcessingFilter">
+		<property name="authenticationManager"
+			ref="authenticationManager" />
+		<property name="authenticationFailureUrl">
+			<value>/view/security/jsp/login.jsp?login_error=user_psw_error</value>
+		</property>
+		<property name="defaultTargetUrl">
+			<value>/index.jsp</value>
+		</property>
+		<property name="filterProcessesUrl">
+			<value>/j_spring_security_check</value>
+		</property>
+		<property name="rememberMeServices" ref="rememberMeServices" />
+		<property name="exceptionMappings">
+			<value>
+				org.springframework.security.AuthenticationException=/view/security/jsp/login.jsp?login_error=user_psw_error
+				org.springframework.security.concurrent.ConcurrentLoginException=/view/security/jsp/login.jsp?login_error=too_many_user_error
+				org.springframework.security.AccessDeniedException=/errors/403.jsp
+			</value>
+		</property>
+	</bean>
+
+
+
+	<bean id="authenticationManager" class="org.springframework.security.providers.ProviderManager"
+		p:sessionController-ref="concurrentSessionController">
+		<property name="providers">
+			<list>
+				<ref local="daoAuthenticationProvider" />
+				<ref local="anonymousAuthenticationProvider" />
+				<ref local="rememberMeAuthenticationProvider" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="daoAuthenticationProvider" class="org.springframework.security.providers.dao.DaoAuthenticationProvider"
+		p:userCache-ref="userCache" p:passwordEncoder-ref="passwordEncoder"
+		p:saltSource-ref="saltSource"
+		p:userDetailsService-ref="userDetailsService" />
+
+	<bean id="saltSource"
+		class="com.justinmobile.security.intercept.support.ReflectionSaltSourceEx">
+		<property name="userPropertyToUse" value="salt" />
+	</bean>
+
+	<bean id="anonymousAuthenticationProvider" class="org.springframework.security.providers.anonymous.AnonymousAuthenticationProvider"
+		p:key="springsecurity" />
+
+	<bean id="rememberMeAuthenticationProvider" class="org.springframework.security.providers.rememberme.RememberMeAuthenticationProvider"
+		p:key="springsecurity" />
+
+	<bean id="concurrentSessionController" class="org.springframework.security.concurrent.ConcurrentSessionControllerImpl"
+		p:maximumSessions="1" p:exceptionIfMaximumExceeded="false"
+		p:sessionRegistry-ref="sessionRegistry"
+		p:messageSource-ref="messageSource" />
+		
+	<bean id="concurrentSessionFilter" class="org.springframework.security.concurrent.ConcurrentSessionFilter">
+		<property name="sessionRegistry">
+			<ref bean="sessionRegistry" />
+		</property>
+		<property name="expiredUrl">
+			<value>/view/security/jsp/expiredPage.jsp</value>
+		</property>
+	</bean>
+
+
+	<bean id="sessionRegistry" class="org.springframework.security.concurrent.SessionRegistryImpl" />
+
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+		p:basename="/WEB-INF/classes/i18n/messages_zh_CN" />
+
+	<bean id="securityContextHolderAwareRequestFilter" class="org.springframework.security.wrapper.SecurityContextHolderAwareRequestFilter" />
+
+	<bean id="rememberMeProcessingFilter" class="org.springframework.security.ui.rememberme.RememberMeProcessingFilter"
+		p:authenticationManager-ref="authenticationManager"
+		p:rememberMeServices-ref="rememberMeServices" />
+
+	<bean id="anonymousProcessingFilter" class="org.springframework.security.providers.anonymous.AnonymousProcessingFilter"
+		p:key="springsecurity" p:userAttribute="anonymousUser,ROLE_ANONYMOUS" />
+
+	<bean id="exceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter"
+		p:accessDeniedHandler-ref="accessDeniedHandler"
+		p:authenticationEntryPoint-ref="authenticationEntryPoint" />
+
+	<bean id="accessDeniedHandler" class="org.springframework.security.ui.AccessDeniedHandlerImpl"
+		p:errorPage="/errors/403.jsp" />
+
+	<bean id="authenticationEntryPoint" class="org.springframework.security.ui.webapp.AuthenticationProcessingFilterEntryPoint"
+		p:loginFormUrl="/view/security/jsp/login.jsp" p:forceHttps="false" />
+
+	<bean id="filterSecurityInterceptor" class="org.springframework.security.intercept.web.FilterSecurityInterceptor"
+		p:authenticationManager-ref="authenticationManager"
+		p:accessDecisionManager-ref="accessDecisionManager"
+		p:objectDefinitionSource-ref="dataBaseDefinitionSource">
+	</bean>
+
+	<bean id="dataBaseDefinitionSource" class="com.justinmobile.security.intercept.web.DataBaseFilterInvocationDefinitionSource"
+		p:urlMatcher-ref="urlMatcher">
+		<constructor-arg ref="securityCacheManager" />
+		<constructor-arg>
+			<list>
+				<value>method</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="urlMatcher" class="org.springframework.security.util.AntUrlPathMatcher" />
+
+	<bean id="accessDecisionManager" class="org.springframework.security.vote.AffirmativeBased"
+		p:allowIfAllAbstainDecisions="false">
+		<property name="decisionVoters">
+			<list>
+				<bean class="org.springframework.security.vote.RoleVoter"
+					p:rolePrefix="" />
+				<bean class="org.springframework.security.vote.AuthenticatedVoter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="rememberMeServices"
+		class="org.springframework.security.ui.rememberme.TokenBasedRememberMeServices"
+		p:key="springsecurity" p:userDetailsService-ref="userDetailsService" />
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.providers.encoding.Md5PasswordEncoder"/>
+ 
+	<bean id="resourceCache"
+		class="com.justinmobile.security.cache.EhCacheBaseResourceCache">
+		<property name="cache">
+			<bean
+				class="org.springframework.cache.ehcache.EhCacheFactoryBean"
+				p:cacheManager-ref="cacheManager" p:cacheName="resourceCache" />
+		</property>
+	</bean>
+	<bean id="userCache"
+		class="org.springframework.security.providers.dao.cache.EhCacheBasedUserCache">
+		<property name="cache">
+			<bean
+				class="org.springframework.cache.ehcache.EhCacheFactoryBean"
+				p:cacheManager-ref="cacheManager" p:cacheName="userCache" />
+		</property>
+	</bean>
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+		p:configLocation="classpath:config/ehcache.xml">
+	</bean>
+
+	<bean id="userDetailsService" class="com.justinmobile.security.userdetails.UserDetailServiceImpl" />
+
+	<bean id="securityCacheManager" class="com.justinmobile.security.manager.impl.SecurityCacheManagerImpl" />
+
+	<bean id="loggerListener" class="org.springframework.security.event.authentication.LoggerListener" />
+
+</beans>

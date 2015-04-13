@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<!--
+		如果不定义webAppRootKey参数，那么webAppRootKey就是缺省的"webapp.root"。但最好设置，以免项目之间的名称冲突。
+		定义以后，在Web Container启动时将把ROOT的绝对路径写到系统变量里。
+		然后log4j的配置文件里就可以用${ bookstore.root }来表示Web目录的绝对路径，把log文件存放于webapp中。
+		此参数用于后面的“Log4jConfigListener”-->
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>bmp.root</param-value>
+	</context-param>
+
+	<!--Spring ApplicationContext配置文件的路径。可使用通配符，多个路径用逗号分隔。
+		此参数用于后面的“Spring-Context loader”-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/*servlet.xml,
+			classpath*:spring/applicationContext*.xml,
+			classpath*:hibernate/applicationContext*.xml
+
+		</param-value>
+	</context-param>
+
+	<!--由Sprng载入的Log4j配置文件位置-->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/log4j.properties</param-value>
+	</context-param>
+
+	<!--Spring默认刷新Log4j配置文件的间隔,单位为millisecond-->
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>30000</param-value>
+	</context-param>
+
+	<!--默认i18n资源文件-->
+
+	<context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.localizationContext
+		</param-name>
+		<param-value>i18n/messages</param-value>
+	</context-param>
+
+
+	<!--famous Character Encoding filter-->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<!--Open Session in View Filter-->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>
+			 com.justinmobile.security.characterEncoding.CharacterEncodingFilter
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/j_spring_security_check</url-pattern>
+	</filter-mapping>
+	
+	<!-- 验证码过滤器 ,必须放在安全springSecurityFilterChain之前	
+	<filter>
+		<filter-name>RandcodeFilter</filter-name>
+		<filter-class>
+			com.justinmobile.security.validatecode.RancodeFilter
+		</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>RandcodeFilter</filter-name>
+		<url-pattern>/j_spring_security_check</url-pattern>
+	</filter-mapping> -->
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>
+			org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>sessionExpiredFilter</filter-name>
+		<filter-class>com.justinmobile.security.intercept.web.SessionExpiredFilter</filter-class>
+		<init-param>
+			<param-name>ignoreHandlers</param-name>
+			<param-value>customerNf.do,externalInterface.do</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>sessionExpiredFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!--Log4J filter，将Session中的UserID属性放入Log4j MDC-->
+
+	<!--
+		<filter>
+		<filter-name>log4jMDCUserFilter</filter-name>
+		<filter-class>com.justinmobile.plugins.security.web.support.Log4JUserFilter</filter-class>
+		</filter>
+		<filter-mapping>
+		<filter-name>log4jMDCUserFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		</filter-mapping>
+	-->
+	<!--消息filter, 将Session中的messages属性放入request并从session移除
+		参见BaseController中的saveMessages()方法使用，用于在Redirect时保留信息-->
+	<!--  
+		<filter>
+		<filter-name>messageFilter</filter-name>
+		<filter-class>com.justinmobile.core.web.MessageFilter</filter-class>
+		</filter>
+		<filter-mapping>
+		<filter-name>messageFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		</filter-mapping>
+	-->
+
+	<!--Spring log4j Config loader-->
+	<listener>
+		<listener-class>
+			org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+
+	<!--Spring Context loader-->
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+	<!--
+		发布HttpSessionApplicationEvents和HttpSessionDestroyedEvent事件给spring的applicationcontext
+	-->
+	<!--
+		<listener>
+		<listener-class>org.acegisecurity.ui.session.HttpSessionEventPublisher</listener-class>
+		</listener>
+	-->
+	<!--Spring Dispatch Servlet,Spring MVC的入口，按servlet-name, 载入springmvc-servlet.xml-->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- jcaptcha 用来生成验证码图片 -->
+	<!--  
+		<servlet>
+		<servlet-name>jcaptcha</servlet-name>
+		<servlet-class>com.justinmobile.security.jcaptcha.ImageCaptchaServlet</servlet-class>
+		<load-on-startup>3</load-on-startup>
+		</servlet>
+	-->
+
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!--
+		<servlet-mapping>
+		<servlet-name>jcaptcha</servlet-name>
+		<url-pattern>/captcha.jpg</url-pattern>
+		</servlet-mapping>
+		
+		<servlet-mapping>
+		<servlet-name>XFireServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+		</servlet-mapping>
+	-->
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>
+			org.directwebremoting.servlet.DwrServlet
+		</servlet-class>
+		<init-param>
+			<description></description>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config-invoker</param-name>
+			<param-value>WEB-INF/siteDWR.xml</param-value>
+			<!--  <description>network resource manage system DRM XML file</description>-->
+		</init-param>
+		<init-param>   
+       		 <param-name>crossDomainSessionSecurity</param-name>   
+        		<param-value>false</param-value>   
+    	</init-param>  
+		<init-param>
+			<param-name>allowScriptTagRemoting</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>
+			org.apache.cxf.transport.servlet.CXFServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+
+
+	<!--session 超时定义-->
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+	<!--默认首页定义-->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!--Error Page定义-->
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errors/error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errors/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/errors/403.jsp</location>
+	</error-page>
+</web-app>
