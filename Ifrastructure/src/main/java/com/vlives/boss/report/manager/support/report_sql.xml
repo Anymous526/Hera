@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report_query desc="报表统计SQL">
+	<item desc="根据城市、日期判断统计报表是否存在">
+		<name>checkReportExist</name>
+		<value>
+			from CityMerchantReport m where m.reportDate = ? and m.city=?
+		</value>
+	</item>
+	<item>
+		<name desc="查询每天商户的新增数">perDayAddMerchantCount</name>
+		<value>
+			 select count(distinct m.id) from merchant m,merchant_log ml,area a where
+			 m.area_id = a.id and ml.merchant_id = m.id and m.status =1 and ml.end_status = 1 
+			 and trunc(ml.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd')
+			 and a.search_code like ? 
+		</value>
+	</item>
+	<item>
+		<name desc="根据城市查询商户总数">totalMerchantCount</name>
+		<value>
+			select m.id from merchant m,area a where
+ 			m.area_id = a.id and a.search_code like ? and m.status = 1 
+ 			and m.id not in(1019,1020,1040,1256,1341,1428,1340)
+		</value>
+	</item>
+	
+	<item>
+		<name desc="根据商户查询POS新增数">perDayAddPosCount</name>
+		<value>
+			select count(*) from pos p,pos_log pl where p.id = pl.pos_id
+   			and p.status=1 and trunc(pl.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd')
+   			and p.merchant_id in (?)
+		</value>
+	</item>
+	<item>
+		<name  desc="根据商户查询POS总数">totalPosCount</name>
+		<value>
+			 select count(id) from pos where status=1 and merchant_id in (?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayAddMemberCount</name>
+		<value>
+			select count(m.id) from member m where m.status = 1 and  
+			 trunc(m.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') and m.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalMemberCount</name>
+		<value>
+			  select count(m.id) from member m where m.status = 1 and m.merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayPosAddMemberCount</name>
+		<value>
+			 select count(id) from member m where
+			  m.status = 1 and  trunc(m.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') 
+			  and m.source=1 and m.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalPosAddMemberCount</name>
+		<value>
+			 select count(id) from member m where m.status = 1 and source=1 and m.merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayPlatformAddMemberCount</name>
+		<value>
+			 select count(id) from member m where
+			  m.status = 1 and  trunc(m.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') 
+			  and m.source=2 and m.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalPlatformAddMemberCount</name>
+		<value>
+			 select count(id) from member m where m.status = 1 and source=2 and m.merchant_id in(?)
+		</value>
+	</item>	
+	<item>
+		<name>perDayCloudbossAddMemberCount</name>
+		<value>
+			 select count(id) from member m where
+			  m.status = 1 and  trunc(m.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') 
+			  and m.source=5 and m.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalCloudbossAddMemberCount</name>
+		<value>
+			 select count(id) from member m where m.status = 1 and source=5 and m.merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDaySysLargessSmsCount</name>
+		<value>
+		select sum(a.count) from sms_account_detail a, sms_account b where a.sms_account_id = b.id  and a.type = 1 
+    	and trunc(a.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') and b.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalSysLargessSmsCount</name>
+		<value>
+			  select sum(sys_presen_count) from sms_account where merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayMerchantBuySmsCount</name>
+		<value>
+			 select sum(a.count) from sms_account_detail a, sms_account b where a.sms_account_id = b.id  and a.type = 2 
+    	and trunc(a.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') and b.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalMerchantBuySmsCount</name>
+		<value>
+			 select sum(merchant_buy_count) from sms_account where merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDaySentSmsCount</name>
+		<value>
+			 select sum(a.count) from sms_account_detail a, sms_account b where a.sms_account_id = b.id  and a.type in(3,6,8)
+    			and trunc(a.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') and b.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalSentSmsCount</name>
+		<value>
+			 select sum(a.count) from sms_account_detail a, sms_account b where a.sms_account_id = b.id  and a.type in(3,6,8) and b.merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayCashTradeCount</name>
+		<value>
+			select count(a.id) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+  			and trunc(a.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') 
+       		and b.type=2 and b.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalCashTradeCount</name>
+		<value>
+			 select count(a.id) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+   			 and b.type=2 and b.merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayCardTradeCount</name>
+		<value>
+			 select count(a.id) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+  			and trunc(a.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') 
+       		and b.type=1 and b.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalCardTradeCount</name>
+		<value>
+			 select count(a.id) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+   			 and b.type=1 and b.merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayCashTradeMoney</name>
+		<value>
+			 select sum(a.amount) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+			 and trunc(a.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') 
+   			and b.type=2 and b.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalCashTradeMoney</name>
+		<value>
+			 select sum(a.amount) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+   			and b.type=2 and b.merchant_id in(?)
+		</value>
+	</item>
+	
+	<item>
+		<name>perDayCardTradeMoney</name>
+		<value>
+			 select sum(a.amount) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+			 and trunc(a.create_date) = to_date(to_char(sysdate-1,'yyyy-mm-dd'),'yyyy-mm-dd') 
+   			and b.type=1 and b.merchant_id in(?)
+		</value>
+	</item>
+	<item>
+		<name>totalCardTradeMoney</name>
+		<value>
+			 select sum(a.amount) from TRADE_DETAIL a,trade_order b where a.trade_order_id= b.id and a.IS_CONSUME = 1
+   			and b.type=1 and b.merchant_id in(?)
+		</value>
+	</item>
+	
+</report_query>
