@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	 
+	<item name="sms_count">
+		<param name="includeProperties">
+			success,
+			msg,
+			smsCount			
+		</param>
+	</item>
+	 
+	
+	
+	
+</json>

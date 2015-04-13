@@ -1,0 +1,70 @@
+/*###########################
+   @Name:云掌柜商户管理平台 
+   @Link:www.yzg.com
+   @Date:2011.09.08
+   @Author:Chenglin.Tian
+#############################*/
+.POS{width:267px; height:470px; background:url(../image/bomb/POS.png) no-repeat transparent; padding-top:10px;}
+.POS01{width:267px; height:470px; background:url(../image/bomb/POS.png) no-repeat transparent; padding-top:10px;}
+.POS_btn{ margin-left:160px; margin-bottom:110px; cursor:pointer;}
+.POS_btn01{ margin-left:240px; margin-bottom:120px; margin-top:-8px; cursor:pointer;}
+.POS h1{ font-size:14px; font-weight:bold; padding-left:40px; line-height:20px;}
+.POS p{ font-size:12px; padding-left:40px;}
+.POS01 h1{ font-size:14px; font-weight:bold; padding-left:65px; line-height:20px;}
+.POS01 p{ font-size:12px; padding-left:65px;}
+
+.Template{ width:444px; height:auto; }
+.Tem_top{ width:444px; height:51px; background:url(../image/bomb/tc.png) no-repeat  transparent;}
+.Tem_top a{ width:24px; height:22px;background:url(../image/bomb/tc.png) -418px -81px no-repeat  transparent; display:block; float:right; margin-right:10px; margin-top:10px;}
+.Tem_top a:hover{ width:24px; height:22px; background:url(../image/bomb/tc.png) -387px -81px no-repeat transparent;}
+.Tem_content{ width:442px; clear:both; background:#F8F6F7; border-left:1px solid #b2b2b2; border-right:1px solid #cccccc; padding-bottom:10px;}
+.Tem_content ul{ width:180px; clear:both; padding-top:3px; padding-left:12px; float:left;}
+.Tem_content ul li{ display:inline;}
+.Tem_content ul li a{ width:160px; height:43px; display:block; background:url(../image/bomb/tc.png) -201px -128px no-repeat transparent; margin:2px 0px; color:#333; font-size:14px; font-family:"微软雅黑"; line-height:40px; font-weight:bold; padding-left:20px;}
+.Tem_content ul li a:hover{ text-decoration:none; color:#666;} 
+.Tem_content ul li.now a{width:160px; height:43px; display:block; background:url(../image/bomb/tc.png) -201px -82px no-repeat transparent; color:#fff; margin:2px 0px; font-family:"微软雅黑"; line-height:40px; font-weight:bold; padding-left:20px; text-decoration:none; font-size:14px;}
+
+.Tem_content dl{ width:220px; height:255px; margin:5px; border:1px solid #ccc; float:left; padding:5px; line-height:20px;}
+
+.Tem_bottom{ width:444px; height:25px; background:url(../image/bomb/tc.png) 0px -53px no-repeat transparent;}
+
+.IPHONE{ width:200px; height:394px;background:url(../image/bomb/iphone.png) no-repeat transparent; padding-top:10px;}
+.IPHONE h1{ font-size:14px; font-weight:bold; padding-left:20px; line-height:20px;}
+.IPHONE p{ font-size:12px; padding-left:25px; padding-right:20px;}
+
+
+
+.Comb{ width:674px; border:2px solid #ebebeb; background:#fff; z-index:9999; clear:both;}
+ 
+.com_bb{ width:652px; border:1px solid #FF9201; background:#fff; padding:5px 5px 15px 15px; clear:both;}
+ 
+.Quan{ width:660px; border-bottom:1px solid #e7e7e7; margin:0 auto; padding-bottom:5px; padding-top:10px; float:left;  }
+.Q_left{ width:239px; height:165px; float:left; position:relative;}
+.q_info{ width:239px; position:relative; background:url(../image/bg/quan.jpg) no-repeat; float:left; overflow:hidden;}
+.q_info_left{ width:124px; height:90px; float:left; padding-left:20px; padding-top:10px;}
+.q_info img{ float:left; width:70px; height:70px; border:1px solid #ae4a00; margin:10px;}
+.q_info_left h1{ font-size:16px; font-family:"微软雅黑"; font-weight:bold; color:#fff;}
+.q_info_left h2{  background:#fff; font-size:14px; color:#ff7e00; font-family:"微软雅黑"; float:left; padding:0px 4px; margin-top:6px;}
+.q_info_left h3{ color:#fff; float:left; width:100%; margin-top:6px;}
+.Q_btn a{ width:53px; height:23px; line-height:23px; text-align:center; background:#E74200; color:#fff; font-size:14px; display:block; text-decoration:none; float:right}
+.Q_btn a:hover{ width:53px; height:23px; line-height:23px; text-align:center; background:#E74200; color:#fedd00; font-size:14px;}
+ 
+.dpbtn{float:right; _margin-top:-35px; *margin-top:-35px; cursor:pointer}
+.Q_zt{ width:239px; height:23px; float:left; border-bottom:1px dashed #ccc; padding-top:7px;}
+ 
+.Q_zt b{ font-size:12px; font-weight:normal; background:#eee; padding:3px; float:left;}
+
+.Q_right{ float:left; width:418px; border-left:1px solid #e7e7e7; min-height:160px; position:relative;height:auto !important;  
+    height:160px;  
+    overflow:visible;}
+.Q_right textarea{ width:390px; height:100px; padding:3px; line-height:20px; margin-left:10px; margin-top:3px; border:1px solid #FFEC9D}
+.Q_right p{ padding:10px; padding-top:5px;  line-height:22px; padding-bottom:30px;}
+.Q_right h1 a{ color:#000; background:#ccc; padding:3px; float:right; width:40px; text-align:center; text-decoration:none; margin-right:10px; margin-top:5px;}
+.Q_right h1 a:hover{ color:red;}
+.mb_btn{ margin-left:110px; padding-top:10px;}
+.mb_bc{ width:97px; height:36px; background:url(../image/btn/mb_bc.jpg) no-repeat; border:none; cursor:pointer;}
+.mb_qx{ width:97px; height:36px; margin-left:10px; background:url(../image/btn/mb_qx.jpg) no-repeat; border:none; cursor:pointer;}
+
+.Wrong{ width:211px; height:151px; background:url(../image/bg/wrong.png) no-repeat transparent; font-size:12px; color:#000;}
+.Wrong_btn{ margin-left:170px; padding-top:25px; cursor:pointer;}
+.Wrong p{ padding:5px 30px; line-height:20px;}

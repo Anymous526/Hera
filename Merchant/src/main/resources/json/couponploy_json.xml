@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="couponPloies">
+		<param name="includeProperties">
+			success,
+			desc,
+			couponPloies\[\d+\]\.merchant,
+			couponPloies\[\d+\]\.merchant\.id,
+			couponPloies\[\d+\]\.merchant\.name,
+			couponPloies\[\d+\]\.merchant\.code,
+			couponPloies\[\d+\]\.id,
+			couponPloies\[\d+\]\.title,
+			couponPloies\[\d+\]\.createDate,
+			couponPloies\[\d+\]\.couponType,
+			couponPloies\[\d+\]\.couponType\.value,
+			couponPloies\[\d+\]\.couponType\.desc,
+			couponPloies\[\d+\]\.couponPloyStatus,
+			couponPloies\[\d+\]\.couponPloyStatus\.value,
+			couponPloies\[\d+\]\.couponPloyStatus\.desc,
+			couponPloies\[\d+\]\.maxSendCount,
+			couponPloies\[\d+\]\.sentCount,
+			couponPloies\[\d+\]\.validateCount,
+			pagination\.count
+		</param>
+	</item>
+	<item name="couponPloy">
+		<param name="includeProperties">
+			success,
+			desc,
+			couponPloy\.merchant,
+			couponPloy\.merchant\.id,
+			couponPloy\.merchant\.name,
+			couponPloy\.merchant\.code,
+			couponPloy\.id,
+			couponPloy\.title,
+			couponPloy\.content,
+			couponPloy\.createDate,
+			couponPloy\.couponType,
+			couponPloy\.couponType\.value,
+			couponPloy\.couponType\.desc,
+			couponPloy\.couponPloyStatus,
+			couponPloy\.couponPloyStatus\.value,
+			couponPloy\.couponPloyStatus\.desc,
+			couponPloy\.validStartDate,
+			couponPloy\.validEndDate,
+			couponPloy\.maxSendCount,
+			couponPloy\.sentCount,
+			couponPloy\.validateCount,
+			pagination\.count
+		</param>
+	</item>
+</json>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="members">
+		<param name="includeProperties">
+			success,
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			list,
+			list\[\d+\]\.id,
+			list\[\d+\]\.source,
+			list\[\d+\]\.source\.desc,
+			list\[\d+\]\.source\.value,
+			list\[\d+\]\.createDate,
+			list\[\d+\]\.level,
+			list\[\d+\]\.createMerchant,
+			list\[\d+\]\.createMerchant\.name,
+			list\[\d+\]\.createMerchant\.code,
+			list\[\d+\]\.level\.desc,
+			list\[\d+\]\.level\.value,
+			list\[\d+\]\.point,
+			list\[\d+\]\.totalPoint,
+			list\[\d+\]\.user,
+			list\[\d+\]\.user\.name,
+			list\[\d+\]\.user\.mobile,
+			list\[\d+\]\.user\.email,
+			list\[\d+\]\.user\.address
+		</param>
+	</item>
+	
+		<item name="member_info">
+		<param name="includeProperties">
+			success,
+			desc,
+			code
+		</param>
+	</item>
+</json>

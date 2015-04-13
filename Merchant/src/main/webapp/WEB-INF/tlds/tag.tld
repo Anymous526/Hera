@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>JSTL 1.1 core library</description>
+	<display-name>JSTL core</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>j</short-name>
+	<uri>/just</uri>
+
+
+	<tag>
+		<name>getStatic</name>
+		<tag-class>com.vlives.util.web.tag.GetstaticTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+	        <description>变量名</description>
+	        <name>var</name>
+	        <required>true</required>
+	        <rtexprvalue>false</rtexprvalue>
+    	</attribute>
+    	<attribute>
+	        <description>类名+@+静态属性(静态方法)<br/>支持方法传递参数，但目前只支持基本类型和包装类型、String、BigDecimal等</description>
+	        <name>value</name>
+	        <required>true</required>
+	        <rtexprvalue>true</rtexprvalue>
+    	</attribute>
+    	<attribute>
+	        <description>
+				Scope for var.
+	        </description>
+	        <name>scope</name>
+	        <required>false</required>
+	        <rtexprvalue>false</rtexprvalue>
+    </attribute>
+	</tag>
+	  <!-- -->
+		<tag>
+		<name>replace</name>
+		<tag-class>com.vlives.util.web.tag.ReplaceTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>完成对字符串length,escape的处理</description>
+		<attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>要处理的字符串</description>
+		</attribute>
+		<attribute>			
+			<name>suffix</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>添加到处理了的字符串后字符串，默认为""</description>
+		</attribute>
+		<attribute>
+			<description>保留的字符串最大长度,如果byByteLength为 true 按字节计算长度</description>
+			<name>length</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<type>java.lang.int</type>
+		</attribute>
+		<attribute>
+			<description>去掉字符串中HTML标签,默认false不出去</description>
+			<name>removeHtml</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.boolean</type>
+		</attribute>
+		<attribute>
+			<description>去掉字符串中\r\n ,默认false转换br标签</description>
+			<name>removeEnter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.boolean</type>
+		</attribute>
+		<attribute>
+			<name>escape</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.boolean</type>
+			<description>把html敏感字符转义,默认true转义</description>
+		</attribute>
+		<attribute>
+			<description>是否按字节计算字符串长度默认是 ： false  如果为:true 则 keep长度为字符串的字节长度</description>
+			<name>byByteLength</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.boolean</type>
+		</attribute>
+	</tag>
+
+
+</taglib>

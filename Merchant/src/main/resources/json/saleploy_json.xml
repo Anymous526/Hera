@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="saleploys">
+		<param name="includeProperties">
+			success,
+			salePloys\[\d+\]\.id,
+			salePloys\[\d+\]\.name,
+			salePloys\[\d+\]\.template,
+			salePloys\[\d+\]\.createDate,
+			salePloys\[\d+\]\.timingSend,
+			salePloys\[\d+\]\.timingTime,
+			salePloys\[\d+\]\.smsCount,
+			salePloys\[\d+\]\.sendCount,
+			salePloys\[\d+\]\.tradeMinMoney,
+			saleploys\[\d+\]\.validStartDate,
+			saleploys\[\d+\]\.validEndDate,
+			saleploys\[\d+\]\.applyMerchant,
+			salePloys\[\d+\]\.salePloyType\.value,
+			salePloys\[\d+\]\.salePloyType\.desc,
+			salePloys\[\d+\]\.status\.value,
+			salePloys\[\d+\]\.status\.desc,
+			salePloys\[\d+\]\.merchant\.name,
+			salePloys\[\d+\]\.merchant\.code,
+			salePloys\[\d+\]\.merchant\.contactName,
+			salePloys\[\d+\]\.merchant\.contactTelephone,
+			pagination\.begin,
+			pagination\.count,
+			pagination\.currentPage,
+			pagination\.pageSize
+		</param>
+	</item>
+	<item name="saleploy">
+		<param name="includeProperties">
+			\[\d+\]\.id,
+			\[\d+\]\.name,
+			\[\d+\]\.template,
+			\[\d+\]\.createDate,
+			\[\d+\]\.timingSend,
+			\[\d+\]\.timingTime,
+			\[\d+\]\.smsCount,
+			\[\d+\]\.sendCount,
+			\[\d+\]\.tradeMinMoney,
+			\[\d+\]\.salePloyType\.value,
+			\[\d+\]\.salePloyType\.desc,
+			\[\d+\]\.status\.value,
+			\[\d+\]\.status\.desc,
+			\[\d+\]\.merchant\.name,
+			\[\d+\]\.merchant\.code,
+			\[\d+\]\.merchant\.contactName,
+			\[\d+\]\.merchant\.contactTelephone
+		</param>
+	</item>
+</json>

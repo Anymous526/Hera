@@ -1,0 +1,8 @@
+
+.paging {height:18px;font-size:12px;}
+.paging a{border:1px solid #dfdfdf;display:inline-block;padding:0 5px;margin:0 1px;background:#fff;line-height:18px;height:18px;text-decoration: none;font-weight:normal;}
+.paging a:hover{border:1px solid #c00;font-weight:bold;}
+.paging .clicked{color:#000;background:#ccc;}
+.paging .next{background: url('pages.gif') no-repeat right -20px;padding-right:10px;}
+.paging .prev{background: url('pages.gif') no-repeat left top;width:7px;}
+.paging span{margin:0 3px; font-size:12px; font-weight:normal; color: #000;}

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="user">
+		<param name="excludeProperties">
+			user\.area
+		</param>
+	</item>
+
+	<item name="userStatistics">
+		<param name="includeProperties">
+			commentCount,
+			memberMerchantCount,
+			favoriteMerchantCount
+		</param>
+	</item>
+
+	<item name="memberMerchants">
+		<param name="includeProperties">
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			merchants\[\d+\]\.id,
+			merchants\[\d+\]\.name,
+			merchants\[\d+\]\.shortName,
+			merchants\[\d+\]\.head,
+			merchants\[\d+\]\.businessAddress,
+			merchants\[\d+\]\.memberGroup,
+			merchants\[\d+\]\.memberGroup\.memberCount,
+			merchants\[\d+\]\.merchantReferenceStatistic,
+			merchants\[\d+\]\.merchantReferenceStatistic\.commentCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.favCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.averageGradeSrc
+		</param>
+	</item>
+
+	<item name="favoriteMerchants">
+		<param name="includeProperties">
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			merchants\[\d+\]\.id,
+			merchants\[\d+\]\.name,
+			merchants\[\d+\]\.shortName,
+			merchants\[\d+\]\.head,
+			merchants\[\d+\]\.businessAddress,
+			merchants\[\d+\]\.memberGroup,
+			merchants\[\d+\]\.memberGroup\.memberCount,
+			merchants\[\d+\]\.merchantReferenceStatistic,
+			merchants\[\d+\]\.merchantReferenceStatistic\.commentCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.favCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.averageGradeSrc
+		</param>
+	</item>
+
+	<item name="consumes">
+		<param name="includeProperties">
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			tradeDetails\[\d+\]\.id,
+			tradeDetails\[\d+\]\.tradeDate,
+			tradeDetails\[\d+\]\.amount,
+			tradeDetails\[\d+\]\.commented,
+			tradeDetails\[\d+\]\.tradeOrder,
+			tradeDetails\[\d+\]\.tradeOrder\.type\.value,
+			tradeDetails\[\d+\]\.tradeOrder\.type\.desc,
+			tradeDetails\[\d+\]\.tradeOrder\.consumePointDetail,
+			tradeDetails\[\d+\]\.tradeOrder\.consumePointDetail\.point,
+			tradeDetails\[\d+\]\.tradeOrder\.member\.user,
+			tradeDetails\[\d+\]\.tradeOrder\.member\.user\.mobile,
+			tradeDetails\[\d+\]\.tradeOrder\.merchant,
+			tradeDetails\[\d+\]\.tradeOrder\.merchant\.id,
+			tradeDetails\[\d+\]\.tradeOrder\.merchant\.name,
+			tradeDetails\[\d+\]\.tradeOrder\.merchant\.shortName,
+			tradeDetails\[\d+\]\.merchantComment,
+			tradeDetails\[\d+\]\.merchantComment\.id,
+			tradeDetails\[\d+\]\.merchantComment\.merchantGrade\.value,
+			tradeDetails\[\d+\]\.merchantComment\.comments,
+			tradeDetails\[\d+\]\.merchantComment\.createDate,
+			tradeDetails\[\d+\]\.merchantComment\.comments,
+			tradeDetails\[\d+\]\.merchantComment\.modifyed,
+			tradeDetails\[\d+\]\.merchantComment\.merchantGradeSrc,
+		</param>
+	</item>
+	
+	<item name="comments">
+		<param name="includeProperties">
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			comments\[\d+\]\.createDate,
+			comments\[\d+\]\.comments,
+			comments\[\d+\]\.reply,
+			comments\[\d+\]\.replyDate,
+			comments\[\d+\]\.timeOutString,
+			comments\[\d+\]\.source,
+			comments\[\d+\]\.source.desc,
+			comments\[\d+\]\.merchant\.name,
+			comments\[\d+\]\.merchant\.shortName,
+			comments\[\d+\]\.merchant\.head,
+			comments\[\d+\]\.merchant\.longitude,
+			comments\[\d+\]\.merchant\.latitude,
+			comments\[\d+\]\.merchant\.favourPloy,
+			comments\[\d+\]\.merchant\.businessAddress,
+			comments\[\d+\]\.merchant\.merchantTelephone,
+			comments\[\d+\]\.merchant\.merchantReferenceStatistic,
+			comments\[\d+\]\.merchant\.merchantReferenceStatistic.commentCount,
+			comments\[\d+\]\.merchant\.merchantReferenceStatistic.favCount,
+			comments\[\d+\]\.merchantGrade.value,
+			comments\[\d+\]\.merchantGrade.desc,	
+			comments\[\d+\]\.merchantGradeSrc,
+			comments\[\d+\]\.merchant\.id,
+			comments\[\d+\]\.merchant\.category,
+			comments\[\d+\]\.merchant\.category.id,
+			comments\[\d+\]\.merchant\.memberGroup,
+			comments\[\d+\]\.merchant\.memberGroup.memberCount,
+			comments\[\d+\]\.member,
+			comments\[\d+\]\.member.user,
+			comments\[\d+\]\.member.user.name,
+			comments\[\d+\]\.member.user.head,
+			comments\[\d+\]\.member.user.shortMobile,
+			comments\[\d+\]\.tradeDetail,
+			comments\[\d+\]\.tradeDetail.amount,
+			comments\[\d+\]\.tradeDetail.tradeOrder,
+			comments\[\d+\]\.tradeDetail.tradeOrder.type,
+			comments\[\d+\]\.tradeDetail\.tradeOrder.type.value,
+			comments\[\d+\]\.tradeDetail\.tradeOrder\.tradeDate,
+			comments\[\d+\]\.tradeDetail.tradeOrder.type.desc
+		</param>
+	</item>
+
+	<item name="points">
+		<param name="includeProperties">
+			success,
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			memberPoints\[\d+\]\.point,
+			memberPoints\[\d+\]\.totalPoint,
+			memberPoints\[\d+\]\.createMerchant\.id,
+			memberPoints\[\d+\]\.createMerchant\.name,
+			memberPoints\[\d+\]\.createMerchant\.shortName,
+			memberPoints\[\d+\]\.level\.value,
+			memberPoints\[\d+\]\.level\.desc
+		</param>
+	</item>
+
+	<item name="listFeedBackPagination">
+		<param name="includeProperties">
+			success,
+			desc,
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			list\[\d+\]\.id,
+			list\[\d+\]\.feedContent,
+			list\[\d+\]\.createDate,
+			list\[\d+\]\.user\.id,
+			list\[\d+\]\.user\.name,
+			list\[\d+\]\.user\.mobile
+		</param>
+	</item>
+</json>
+

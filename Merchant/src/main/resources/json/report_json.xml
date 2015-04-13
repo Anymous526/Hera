@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="merchantReprot">
+		<param name="includeProperties">
+			success,
+			msg,
+			merchantReprot\[\d+\]\.createDate,
+			merchantReprot\[\d+\]\.merchant,
+			merchantReprot\[\d+\]\.merchant.code,
+			merchantReprot\[\d+\]\.merchant.name,
+			merchantReprot\[\d+\]\.merchant.createDate,
+			merchantReprot\[\d+\]\.perDayAddMemberCount,
+			merchantReprot\[\d+\]\.totalMemberCount,
+			merchantReprot\[\d+\]\.cashTradeMoney,
+			merchantReprot\[\d+\]\.cashTradeCount,
+			merchantReprot\[\d+\]\.cardTradeMoney,
+			merchantReprot\[\d+\]\.cardTradeCount,
+			merchantReprot\[\d+\]\.perDayAddSalePloyCount,
+			merchantReprot\[\d+\]\.totalSalePloyCount,
+			merchantReprot\[\d+\]\.sendSmsCount,
+			pagination\.count
+		</param>
+	</item>
+	<item name="memberReprot">
+		<param name="includeProperties">
+			success,
+			msg,
+			memberReprot\[\d+\]\.mobile,
+			memberReprot\[\d+\]\.createDate,
+			memberReprot\[\d+\]\.merchantCode,
+			memberReprot\[\d+\]\.merchantName,
+			pagination\.count
+		</param>
+	</item>
+	<item name="cityMerchantReports">
+		<param name="includeProperties">
+			success,
+			desc,
+			cityMerchantReports\[\d+\]\.id,
+			cityMerchantReports\[\d+\]\.reportDate,
+			cityMerchantReports\[\d+\]\.city,
+			cityMerchantReports\[\d+\]\.city.name,
+			cityMerchantReports\[\d+\]\.city.address,
+			cityMerchantReports\[\d+\]\.perDayAddMerchantCount,
+			cityMerchantReports\[\d+\]\.totalMerchantCount,
+			cityMerchantReports\[\d+\]\.perDayAddPosCount,
+			cityMerchantReports\[\d+\]\.totalPosCount,
+			cityMerchantReports\[\d+\]\.perDayAddMemberCount,
+			cityMerchantReports\[\d+\]\.totalMemberCount,
+			cityMerchantReports\[\d+\]\.perDayPosAddMemberCount,
+			cityMerchantReports\[\d+\]\.totalPosAddMemberCount,
+			cityMerchantReports\[\d+\]\.perDayPlatformAddMemberCount,
+			cityMerchantReports\[\d+\]\.totalPlatformAddMemberCount,
+			cityMerchantReports\[\d+\]\.perDayCloudbossAddMemberCount,
+			cityMerchantReports\[\d+\]\.totalCloudbossAddMemberCount,
+			cityMerchantReports\[\d+\]\.perDaySysLargessSmsCount,
+			cityMerchantReports\[\d+\]\.totalSysLargessSmsCount,
+			cityMerchantReports\[\d+\]\.perDayMerchantBuySmsCount,
+			cityMerchantReports\[\d+\]\.totalMerchantBuySmsCount,
+			cityMerchantReports\[\d+\]\.perDaySentSmsCount,
+			cityMerchantReports\[\d+\]\.totalSentSmsCount,
+			cityMerchantReports\[\d+\]\.perDayCashTradeCount,
+			cityMerchantReports\[\d+\]\.totalCashTradeCount,
+			cityMerchantReports\[\d+\]\.perDayCardTradeCount,
+			cityMerchantReports\[\d+\]\.totalCardTradeCount,
+			cityMerchantReports\[\d+\]\.perDayCashTradeMoney,
+			cityMerchantReports\[\d+\]\.totalCashTradeMoney,
+			cityMerchantReports\[\d+\]\.perDayCardTradeMoney,
+			cityMerchantReports\[\d+\]\.totalCardTradeMoney
+		</param>
+	</item>
+</json>

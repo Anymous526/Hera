@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	 
+	<item name="illegalWords">
+		<param name="includeProperties">
+			success,
+			illegalWords\[\d+\]\.id,
+			illegalWords\[\d+\]\.content,
+			illegalWords\[\d+\]\.createDate,
+			pagination\.count,
+		</param>
+	</item>
+
+</json>

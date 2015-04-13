@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="categoryDto">
+		<param name="includeProperties">
+			\[\d+\]\.category,
+			\[\d+\]\.category.id,
+			\[\d+\]\.category.name,
+			\[\d+\]\.merchantCount
+		</param>
+	</item>
+	<item name="categories">
+		<param name="includeProperties">
+			success,
+			categories\[\d+\]\.id,
+			categories\[\d+\]\.name
+		</param>
+	</item>
+</json>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	 
+	<item name="saleploysearch">
+		<param name="includeProperties">
+			\[\d+\]\.id,
+			\[\d+\]\.name,
+			\[\d+\]\.template,
+			\[\d+\]\.createDate,
+			\[\d+\]\.merchant\.id,
+			\[\d+\]\.merchant\.name,
+			\[\d+\]\.merchant\.shortName,
+			\[\d+\]\.merchant\.head,
+			\[\d+\]\.merchant\.longitude,
+			\[\d+\]\.merchant\.latitude,
+			\[\d+\]\.merchant\.area\.name,
+			\[\d+\]\.merchant\.code,
+			\[\d+\]\.merchant\.businessAddress,
+			\[\d+\]\.merchant\.businessTime,
+			\[\d+\]\.merchant\.merchantTelephone,
+			\[\d+\]\.merchant\.category\.id,
+			\[\d+\]\.merchant\.category\.name,
+			\[\d+\]\.merchant\.info,
+			\[\d+\]\.merchant\.favourPloy,
+			\[\d+\]\.merchant\.memberGroup,
+			\[\d+\]\.merchant\.memberGroup\.memberCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.commentCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.favCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.consumeCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.creditScore,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.averageGradeSrc
+		</param>
+	</item>
+	
+	<item name="merchantList">
+		<param name="includeProperties">
+			\[\d+\]\.id,
+			\[\d+\]\.name,
+			\[\d+\]\.head,
+			\[\d+\]\.longitude,
+			\[\d+\]\.latitude,
+			\[\d+\]\.area\.name,
+			\[\d+\]\.code,
+			\[\d+\]\.businessAddress,
+			\[\d+\]\.businessTime,
+			\[\d+\]\.merchantTelephone,
+			\[\d+\]\.category\.id,
+			\[\d+\]\.category\.name,
+			\[\d+\]\.info,
+			\[\d+\]\.favourPloy,
+			\[\d+\]\.memberGroup,
+			\[\d+\]\.memberGroup\.memberCount,
+			\[\d+\]\.merchantReferenceStatistic\.commentCount,
+			\[\d+\]\.merchantReferenceStatistic\.favCount,
+			\[\d+\]\.merchantReferenceStatistic\.consumeCount,
+			\[\d+\]\.merchantReferenceStatistic\.creditScore,
+			\[\d+\]\.merchantReferenceStatistic\.averageGradeSrc,
+		</param>
+	</item>
+
+	<item name="searchmerchant">
+		<param name="includeProperties">
+			merchants\[\d+\]\.id,
+			merchants\[\d+\]\.name,
+			merchants\[\d+\]\.head,
+			merchants\[\d+\]\.longitude,
+			merchants\[\d+\]\.latitude,
+			merchants\[\d+\]\.area\.name,
+			merchants\[\d+\]\.code,
+			merchants\[\d+\]\.businessAddress,
+			merchants\[\d+\]\.businessTime,
+			merchants\[\d+\]\.merchantTelephone,
+			merchants\[\d+\]\.category\.id,
+			merchants\[\d+\]\.category\.name,
+			merchants\[\d+\]\.info,
+			merchants\[\d+\]\.favourPloy,
+			merchants\[\d+\]\.memberGroup,
+			merchants\[\d+\]\.memberGroup\.memberCount,
+			
+			merchants\[\d+\]\.merchantReferenceStatistic\.commentCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.favCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.consumeCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditScore,
+			merchants\[\d+\]\.merchantReferenceStatistic\.averageGradeSrc,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditGrade\.value,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditGrade\.label,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditGrade\.htmlImg,
+			
+			areas\[\d+\]\.area\.id,
+			areas\[\d+\]\.area\.name,
+			areas\[\d+\]\.merchantCount,
+			
+			categories\[\d+\]\.category\.id,
+			categories\[\d+\]\.category\.name,
+			categories\[\d+\]\.merchantCount,
+			
+			preferentialCount,
+			
+			pagination\.begin,
+			pagination\.count,
+			pagination\.currentPage,
+			pagination\.pageSize
+		</param>
+	</item>
+	
+	<item name="webMerchant">
+		<param name="includeProperties">
+			success,
+			merchant\.name,
+			merchant\.longitude,
+			merchant\.latitude,
+			merchant\.businessAddress,
+			merchant\.contactTelephone,
+			merchant\.businessTime,
+			merchant\.category,
+			merchant\.category\.id,
+			merchant\.category\.name,
+			merchant\.info,
+			merchant\.favourPloy,
+			merchant\.merchantReferenceStatistic\.commentCount,
+			merchant\.merchantReferenceStatistic\.favCount,
+			merchant\.merchantReferenceStatistic\.averageGradeSrc,
+			merchant\.memberGroup\.memberCount
+		</param>
+	</item>
+</json>

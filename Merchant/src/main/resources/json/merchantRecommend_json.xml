@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 商户推荐返回值 -->
+<json>
+ 
+	<item name="listMerchantRecommend">
+		<param name="includeProperties">
+			\[\d+\]\.id,
+			\[\d+\]\.name,
+			\[\d+\]\.head,
+			\[\d+\]\.longitude,
+			\[\d+\]\.latitude,
+			\[\d+\]\.shortName,
+			\[\d+\]\.area\.name,
+			\[\d+\]\.code,
+			\[\d+\]\.businessAddress,
+			\[\d+\]\.businessTime,
+			\[\d+\]\.merchantTelephone,
+			\[\d+\]\.category\.id,
+			\[\d+\]\.category\.name,
+			\[\d+\]\.info,
+			\[\d+\]\.favourPloy,
+			\[\d+\]\.memberGroup,
+			\[\d+\]\.memberGroup\.memberCount,
+			\[\d+\]\.merchantReferenceStatistic\.commentCount,
+			\[\d+\]\.merchantReferenceStatistic\.favCount,
+			\[\d+\]\.merchantReferenceStatistic\.consumeCount,
+			\[\d+\]\.merchantReferenceStatistic\.creditScore,
+			\[\d+\]\.merchantReferenceStatistic\.averageGradeSrc
+		</param>
+	</item>
+	
+
+</json>

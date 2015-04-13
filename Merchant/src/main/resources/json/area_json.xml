@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="area">
+		<param name="includeProperties">
+			id,
+			name,
+			childrens,
+			childrens\[\d+\]\.id,
+			childrens\[\d+\]\.name
+		</param>
+	</item>
+</json>

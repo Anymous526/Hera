@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<aop:aspectj-autoproxy/>
+  <!-- Quartz本地Schduler -->
+	<bean name="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" >
+		<property name="triggers">
+			<list>
+				 <ref bean="timerSendSmsCron"/>
+				<ref bean="expiredPloyCron" />					
+				<ref bean="commentCron" />
+				<ref bean="merchantRecommendCal" />
+				<ref bean="merchantReport"/>
+			</list>
+		</property>
+		<!-- Quartz配置 -->
+		<property name="configLocation" value="classpath:config/quartz.properties" />
+		
+		<!-- 启动时延期1秒开始任务    serocds-->
+		<!-- 先设置3000 ，正式 10 -->
+		<property name="startupDelay" value="3000" />
+	</bean>
+	
+	
+	<!---  
+     	 群发营销短信、电子卷短信、更新营销短信发送数
+		每天9-22点  每30分钟发送一次    	
+	-->
+	<bean id="timerSendSmsCron"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="timerSendSmsMethod" />			
+		<property name="cronExpression" value="0 0/30 9-21 * * ?" />		
+	</bean>
+	
+	<bean id="timerSendSmsMethod"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="sendSmsTaskManager" />			
+		<property name="targetMethod" value="timerSendSms" />
+	</bean>
+	
+	<!--- 
+	营销活动过期状态修改、电子卷活动和电子卷过期,  
+	1点、1天一次	
+	-->
+	<bean id="expiredPloyCron"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="expiredPloyMethod" />			
+		<property name="cronExpression" value="0 0 1 * * ?" />		
+	</bean>
+	
+	<bean id="expiredPloyMethod"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="timingTaskManager" />			
+		<property name="targetMethod" value="timerScanExpiredPloy" />
+	</bean>
+	
+	
+	
+	<!---  
+		更新评论
+		1天1次
+	-->
+	<bean id="commentCron"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="commentMethod" />			
+		<property name="cronExpression" value="0 30 1 * * ?" />
+	</bean>
+	
+	<bean id="commentMethod"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="timingTaskManager" />			
+		<property name="targetMethod" value="autoAddComment" />
+	</bean>
+ 
+	
+	<!--- 
+	根据生成商户推荐排行规则生成推荐商户
+	*1天1次	 
+	-->
+	<bean id="merchantRecommendCal"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="merchantRecommendCalDetail" />			
+		<property name="cronExpression" value="0 0 2 * * ?" />		
+	</bean>	
+	<bean id="merchantRecommendCalDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="timingTaskManager" />			
+		<property name="targetMethod" value="createMerchantRecommend" />
+	</bean>
+	<!-- 
+	商户统计报表工具
+	1天1次
+	 -->
+	<bean id="merchantReport"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="merchantReportInvoke" />
+		<!-- 
+		<property name="cronExpression" value="0 0/30 9-21 * * ?" />
+		<property name="cronExpression" value="0 0 3 * * ?" />
+		 -->			
+		<property name="cronExpression" value="0 30 2 * * ?" />
+	</bean>
+	<bean id="merchantReportInvoke"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="timingTaskManager" />			
+		<property name="targetMethod" value="createMerchantReoprt" />
+	</bean>
+	
+ 
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<import resource="/json/couponploy_json.xml"/>
+	<import resource="/json/member_json.xml"/>
+	<import resource="/json/merchant_json.xml"/>
+	<import resource="/json/merchant_web_json.xml"/>
+	<import resource="/json/illegalword_json.xml"/>
+	<import resource="/json/merchant_detail_json.xml"/>
+	<import resource="/json/saleploy_json.xml"/>
+	<import resource="/json/area_json.xml"/>
+	<import resource="/json/merchant_comment_json.xml"/>
+	<import resource="/json/merchantRecommend_json.xml" />
+	<import resource="/json/user_json.xml"/>
+	<import resource="/json/category_json.xml"/>
+	<import resource="/json/whats_new_json.xml"/>
+	<import resource="/json/trade_detail_json.xml"/>
+	<import resource="/json/report_json.xml"/>
+	<item name="default_json"/>
+</json>

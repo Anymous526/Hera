@@ -1,0 +1,10 @@
+body{ background:#fff url(../image/bg/bg.jpg) repeat-x 0px 100px;}
+#login{ width:412px; height:501px; position:absolute; _position:inherit; left:50%; margin-left:-206px; background:url(../image/bg/loginbg.png); top:30px;}
+#login ul{ padding-top:175px; padding-left:142px;}
+#login ul li{ height:34px;}
+#login ul li input{ height:20px; line-height:20px; border:1px solid #c7c5c6; color:#333; font-size:12px; padding-left:3px;}
+#login ul li a{color:#F8780D;}
+#login ul li a:link{color:#F8780D; text-decoration:underline;}
+#login ul li a:hover{color:#F8780D; text-decoration:none; color:#F63}
+#login ul li dl a dd{ width:143px; height:25px; background:url(../image/btn/login.png)}
+#login ul li dl a:hover dd{ width:143px; height:25px; background:url(../image/btn/login01.png)}

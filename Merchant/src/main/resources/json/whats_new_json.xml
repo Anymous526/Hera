@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="whats_new">
+		<param name="includeProperties">
+			\[\d+\]\.member\.user,
+			\[\d+\]\.member\.user\.petName,
+			\[\d+\]\.member\.user\.shortMobile,
+			\[\d+\]\.member\.user\.head,
+			\[\d+\]\.merchant\.id,
+			\[\d+\]\.merchant\.name,
+			\[\d+\]\.merchant\.shortName,
+			\[\d+\]\.merchant\.category,
+			\[\d+\]\.merchant\.category\.id,
+			\[\d+\]\.merchant\.category\.name,
+			\[\d+\]\.merchant\.head,
+			\[\d+\]\.merchant\.longitude,
+			\[\d+\]\.merchant\.latitude,
+			\[\d+\]\.merchant\.favourPloy,
+			\[\d+\]\.merchant\.businessAddress,
+			\[\d+\]\.merchant\.merchantTelephone,
+			\[\d+\]\.merchant\.merchantReferenceStatistic,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.commentCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.favCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.consumeCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.averageGradeSrc,
+			\[\d+\]\.merchant\.memberGroup,
+			\[\d+\]\.merchant\.memberGroup\.memberCount,
+			\[\d+\]\.typeDesc,
+			\[\d+\]\.content,
+			\[\d+\]\.timeFromNow
+		</param>
+	</item>
+</json>

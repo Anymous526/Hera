@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="user_consume_order">
+		<param name="includeProperties">
+		success,	
+		tradeDetails\[\d+\]\.id,
+		tradeDetails\[\d+\]\.tradeDate,	
+		tradeDetails\[\d+\]\.amount,
+		tradeDetails\[\d+\]\.commented,		
+		tradeDetails\[\d+\]\.tradeOrder,
+		tradeDetails\[\d+\]\.tradeOrder\.type\.value,
+		tradeDetails\[\d+\]\.tradeOrder\.type\.desc,
+		tradeDetails\[\d+\]\.tradeOrder\.consumePointDetail,
+		tradeDetails\[\d+\]\.tradeOrder\.consumePointDetail\.point,
+		tradeDetails\[\d+\]\.tradeOrder\.member\.user,	
+		tradeDetails\[\d+\]\.tradeOrder\.member\.user\.mobile,	
+		tradeDetails\[\d+\]\.tradeOrder\.merchant,
+		tradeDetails\[\d+\]\.tradeOrder\.merchant\.id,		
+		tradeDetails\[\d+\]\.tradeOrder\.merchant\.name,
+		tradeDetails\[\d+\]\.merchantComment,
+		tradeDetails\[\d+\]\.merchantComment\.id,
+		tradeDetails\[\d+\]\.merchantComment\.merchantGrade\.value,
+		tradeDetails\[\d+\]\.merchantComment\.comments,
+		tradeDetails\[\d+\]\.merchantComment\.createDate,
+		tradeDetails\[\d+\]\.merchantComment\.comments,
+		tradeDetails\[\d+\]\.merchantComment\.modifyed,
+		tradeDetails\[\d+\]\.merchantComment\.merchantGradeSrc,
+		pagination,
+		pagination\.pageSize,
+		pagination\.pageCount,
+		pagination\.currentPage,
+		pagination\.count,
+		</param>
+	</item>
+</json>
