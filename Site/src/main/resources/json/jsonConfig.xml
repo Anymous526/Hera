@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<import resource="/json/index_json.xml"/>
+	<import resource="/json/merchant_json.xml"/>
+	<import resource="/json/search_json.xml"/>
+	<import resource="/json/promotion_json.xml"/>
+	<import resource="/json/top_json.xml"/>
+	<import resource="/json/user_json.xml"/>
+	<item name="default_json"/>
+</json>

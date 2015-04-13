@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="search.merchants">
+		<param name="includeProperties">
+			merchants\[\d+\]\.id,
+			merchants\[\d+\]\.name,
+			merchants\[\d+\]\.shortName,
+			merchants\[\d+\]\.headForWeb,
+			merchants\[\d+\]\.longitude,
+			merchants\[\d+\]\.latitude,
+			merchants\[\d+\]\.area\.name,
+			merchants\[\d+\]\.code,
+			merchants\[\d+\]\.businessAddress,
+			merchants\[\d+\]\.businessTime,
+			merchants\[\d+\]\.merchantTelephone,
+			merchants\[\d+\]\.category\.id,
+			merchants\[\d+\]\.category\.name,
+			merchants\[\d+\]\.info,
+			merchants\[\d+\]\.favourPloy,
+			merchants\[\d+\]\.memberGroup,
+			merchants\[\d+\]\.memberGroup\.memberCount,
+
+			merchants\[\d+\]\.merchantReferenceStatistic\.commentCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.favCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.consumeCount,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditScore,
+			merchants\[\d+\]\.merchantReferenceStatistic\.averageGradeSrc,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditGrade\.value,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditGrade\.label,
+			merchants\[\d+\]\.merchantReferenceStatistic\.creditGrade\.htmlImg,
+			
+			areas\[\d+\]\.area\.id,
+			areas\[\d+\]\.area\.name,
+			areas\[\d+\]\.merchantCount,
+			
+			categories\[\d+\]\.category\.id,
+			categories\[\d+\]\.category\.name,
+			categories\[\d+\]\.merchantCount,
+			
+			preferentialCount,
+			
+			pagination\.begin,
+			pagination\.count,
+			pagination\.currentPage,
+			pagination\.pageSize
+		</param>
+	</item>	
+</json>

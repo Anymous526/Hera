@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	 
+
+	<!--Spring ApplicationContext配置文件的路径。可使用通配符，多个路径用逗号分隔。
+		此参数用于后面的“Spring-Context loader”-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:base/spring/*.xml,classpath*:spring/*.xml
+		</param-value>
+	</context-param>
+	<!--Spring Context loader-->
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+	<!--Open Session in View Filter-->
+	<filter>
+		<filter-name>openSessionInView</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInView</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+ 	<filter>
+		<filter-name>webContextFilter</filter-name>
+		<filter-class>
+			com.vlives.core.web.filter.WebContextFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>webContextFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--famous Character Encoding filter-->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>httpParamterFilter</filter-name>
+		<filter-class>com.vlives.core.web.filter.HttpParamterFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>httpParamterFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>userAuthenticationFilter</filter-name>
+		<filter-class>com.vlives.site.filter.UserAuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>userAuthenticationFilter</filter-name>
+		<url-pattern>/user/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>userFilter</filter-name>
+		<filter-class>com.vlives.site.filter.UserFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>userFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>cityFilter</filter-name>
+		<filter-class>com.vlives.site.filter.CityFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>cityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>  
+         <filter-name>HiddenHttpMethodFilter</filter-name>  
+         <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>  
+    </filter>  
+	<filter-mapping>  
+		<filter-name>HiddenHttpMethodFilter</filter-name>
+		<servlet-name>springmvc</servlet-name>  
+	</filter-mapping>
+    <filter>
+		<filter-name>pageCacheFilter</filter-name>
+		<filter-class>com.vlives.core.web.filter.cache.PageCacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>pageCacheFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.xml</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.jpeg</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.bmp</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.tif</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.swf</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	 </servlet-mapping>
+	 <servlet-mapping>
+	 	<servlet-name>default</servlet-name>
+		<url-pattern>*.ico</url-pattern>
+	 </servlet-mapping>
+	 
+	<!--session 超时定义 分钟-->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<!--默认首页定义-->
+	<welcome-file-list>
+		<welcome-file>/index.html</welcome-file>
+	</welcome-file-list>
+	 
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.htm</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.htm</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/error/503.htm</location>
+	</error-page>
+	 
+ 
+</web-app>

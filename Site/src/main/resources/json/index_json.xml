@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="index.whatsnew">
+		<param name="includeProperties">
+			\[\d+\]\.member\.user,
+			\[\d+\]\.member\.user\.petName,
+			\[\d+\]\.member\.user\.shortMobile,
+			\[\d+\]\.member\.user\.head,
+			\[\d+\]\.merchant\.id,
+			\[\d+\]\.merchant\.name,
+			\[\d+\]\.merchant\.shortName,
+			\[\d+\]\.merchant\.category,
+			\[\d+\]\.merchant\.category\.id,
+			\[\d+\]\.merchant\.category\.name,
+			\[\d+\]\.merchant\.headForWeb,
+			\[\d+\]\.merchant\.longitude,
+			\[\d+\]\.merchant\.latitude,
+			\[\d+\]\.merchant\.favourPloy,
+			\[\d+\]\.merchant\.businessAddress,
+			\[\d+\]\.merchant\.merchantTelephone,
+			\[\d+\]\.merchant\.merchantReferenceStatistic,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.commentCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.favCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.consumeCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.averageGrade,
+			\[\d+\]\.merchant\.memberGroup,
+			\[\d+\]\.merchant\.memberGroup\.memberCount,
+			\[\d+\]\.typeDesc,
+			\[\d+\]\.content,
+			\[\d+\]\.timeFromNow
+		</param>
+	</item>
+	
+	<item name="index.recommend">
+		<param name="includeProperties">
+			\[\d+\]\.id,
+			\[\d+\]\.name,
+			\[\d+\]\.headForWeb,
+			\[\d+\]\.longitude,
+			\[\d+\]\.latitude,
+			\[\d+\]\.shortName,
+			\[\d+\]\.area\.name,
+			\[\d+\]\.code,
+			\[\d+\]\.businessAddress,
+			\[\d+\]\.businessTime,
+			\[\d+\]\.merchantTelephone,
+			\[\d+\]\.category\.id,
+			\[\d+\]\.category\.name,
+			\[\d+\]\.info,
+			\[\d+\]\.favourPloy,
+			\[\d+\]\.memberGroup,
+			\[\d+\]\.memberGroup\.memberCount,
+			\[\d+\]\.merchantReferenceStatistic\.commentCount,
+			\[\d+\]\.merchantReferenceStatistic\.favCount,
+			\[\d+\]\.merchantReferenceStatistic\.consumeCount,
+			\[\d+\]\.merchantReferenceStatistic\.creditScore,
+			\[\d+\]\.merchantReferenceStatistic\.averageGrade
+		</param>
+	</item>
+	
+	<item name="index.promotions">
+		<param name="includeProperties">
+			\[\d+\]\.id,
+			\[\d+\]\.title,
+			\[\d+\]\.content,
+			\[\d+\]\.introduction,
+			\[\d+\]\.merchant\.id,
+			\[\d+\]\.merchant\.name,
+			\[\d+\]\.merchant\.shortName,
+			\[\d+\]\.merchant\.headForWeb,
+			\[\d+\]\.merchant\.longitude,
+			\[\d+\]\.merchant\.latitude,
+			\[\d+\]\.merchant\.area\.name,
+			\[\d+\]\.merchant\.code,
+			\[\d+\]\.merchant\.businessAddress,
+			\[\d+\]\.merchant\.businessTime,
+			\[\d+\]\.merchant\.merchantTelephone,
+			\[\d+\]\.merchant\.category\.id,
+			\[\d+\]\.merchant\.category\.name,
+			\[\d+\]\.merchant\.info,
+			\[\d+\]\.merchant\.e,
+			\[\d+\]\.merchant\.memberGroup,
+			\[\d+\]\.merchant\.memberGroup\.memberCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.commentCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.favCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.consumeCount,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.creditScore,
+			\[\d+\]\.merchant\.merchantReferenceStatistic\.averageGrade
+		</param>
+	</item>
+</json>

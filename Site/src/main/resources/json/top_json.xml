@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="top.uncommentCount">
+		<param name="includeProperties">
+			success,
+			msg,
+			count
+		</param>
+	</item>
+	
+	<item name="top.userInfo">
+		<param name="includeProperties">
+			result,
+			message,
+			user\.head,
+			user\.shortMobile,
+			user\.petName
+		</param>
+	</item>
+	
+	<item name="top.externalUserInfo">
+		<param name="includeProperties">
+			result,
+			binding,
+			message,
+			user\.head,
+			user\.shortMobile,
+			user\.petName
+		</param>
+	</item>
+</json>

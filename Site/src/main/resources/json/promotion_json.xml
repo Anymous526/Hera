@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<json>
+	<item name="promotion.promotions">
+		<param name="includeProperties">
+			pagination,
+			pagination\.pageSize,
+			pagination\.pageCount,
+			pagination\.currentPage,
+			pagination\.count,
+			promotions\[\d+\]\.id,
+			promotions\[\d+\]\.merchant\.headForWeb,
+			promotions\[\d+\]\.merchant\.shortName,
+			promotions\[\d+\]\.title,
+			promotions\[\d+\]\.validEndDate,
+			promotions\[\d+\]\.maxSendCount,
+			promotions\[\d+\]\.sentCount,
+			promotions\[\d+\]\.content
+		</param>
+	</item>
+</json>

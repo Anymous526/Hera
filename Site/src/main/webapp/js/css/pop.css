@@ -1,0 +1,14 @@
+.drift{ 
+    width:300px; 
+border:1px solid #009bce;
+background:#fff;
+float:left;
+}
+
+.d_title{ font-size:14px; font-weight:bold; height:22px; line-height:22px; width:298px; background:#009bce; color:#fff;  border:1px solid #8dcedc;}
+.d_title span{ float:left; padding-left:20px;}
+.d_title img{ float:right; padding-top:2px; padding-right:4px; cursor:pointer;}
+.d_content{ font-size:13px; height:100%; min-height:30px; width:278px;padding:15px; }
+.d_content img{ float:left; }
+.d_footer{ font-size:12px; font-weight:normal;  height:26px; line-height:26px; width:300px;  color:#999; background:#d5eff0; text-align:center;}
+.d_footer img{ padding-top:2px; cursor:pointer;} 
