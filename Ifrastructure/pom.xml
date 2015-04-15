@@ -22,6 +22,10 @@
 					<source>1.7</source>
 					<target>1.7</target>
 					<encoding>UTF-8</encoding>
+					<optimize>true</optimize>
+					<debug>true</debug>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>			
 		</plugins>
